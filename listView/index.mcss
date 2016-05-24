@@ -1,26 +1,50 @@
+@import "./core.mcss";
+
+// Component:       `m-listView`
+// ========================================================================
+
 .m-listView {
-    @extend .f-lsn;
-    $box-sizing: border-box;
-    $user-select: none;
+    padding: 5px 0;
+    background: $field_background;
+    color: $field_color;
+    $border-radius: $border-radius-lg;
+    $border: $field_border;
 
     > li {
-        cursor: pointer;
-        position: relative;
+        padding: $item_padding;
+        color: #777;
     }
 
-    > li:hover {}
+    > li:hover {
+        background: $item-hover_background;
+        color: $item-hover_color;
+    }
 
-    > li.z-sel {}
+    > li.z-sel {
+        background: $item-selected_background;
+        color: $item-selected_color;
+    }
 
     > li.z-dis {
-        cursor: not-allowed;
         background: none;
+        color: $field-disabled_color;
+    }
+
+    > li.z-divider {
+        margin: 9px 0;
+        padding: 0;
+        height: 1px;
+        background: #e5e5e5;
+        overflow: hidden;
     }
 }
 
+/* Disabled */
 .m-listView.z-dis {
+    background: $field-disabled_background;
+
     > li {
-        cursor: not-allowed;
-        background: none;
+        background: $field-disabled_background;
+        color: $field-disabled_color;
     }
 }

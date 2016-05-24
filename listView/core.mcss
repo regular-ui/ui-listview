@@ -1,0 +1,30 @@
+// Component:       `m-listView`
+// ========================================================================
+
+.m-listView {
+    @extend .f-lsn;
+    $box-sizing: border-box;
+    $user-select: none;
+
+    > li {
+        cursor: pointer;
+        position: relative;
+    }
+
+    > li:hover {}
+
+    > li.z-sel {}
+
+    > li.z-dis {
+        cursor: not-allowed;
+        background: none;
+    }
+}
+
+/* Disabled */
+.m-listView.z-dis {
+    > li {
+        cursor: not-allowed;
+        background: none;
+    }
+}
