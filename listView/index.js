@@ -1,4 +1,4 @@
-import {Component, util as _} from 'regular-ui-base';
+import {Component, util as _} from 'rgui-base';
 import template from './index.rgl';
 
 /**

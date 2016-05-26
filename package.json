@@ -1,5 +1,5 @@
 {
-  "name": "regular-ui-listview",
+  "name": "rgui-listview",
   "description": "Regular UI - ListView, Item",
   "version": "0.2.0",
   "author": "Rainfore <rainforest92@126.com>",
@@ -8,9 +8,9 @@
   "homepage": "http://regular-ui.github.io",
   "bugs": {"url": "http://github.com/regular-ui/ui-listview/issues"},
   "license": "MIT",
-  "keywords": ["regular", "ui", "listview"],
-  "tags": ["regular", "ui", "listview"],
+  "keywords": ["regular", "ui", "rgui", "listview", "item"],
+  "tags": ["regular", "ui", "rgui", "listview", "item"],
   "dependencies": {
-    "regular-ui-base": "regular-ui/ui-base#feature/v0.2"
+    "rgui-base": "regular-ui/ui-base#feature/v0.2"
   }
 }

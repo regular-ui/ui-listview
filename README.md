@@ -6,13 +6,11 @@ Regular UI - ListView, Item
 
 列表视图
 
-Demo
+Demo: http://regular-ui.github.io/ui-listview/listView/index.html
 
 ## Item
 
 列表项
-
-Demo
 
 ## Copyright and License
 
