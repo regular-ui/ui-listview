@@ -19,17 +19,17 @@ let ListView = Component.extend({
      * @protected
      */
     config() {
-        this.list = [];
-        this.selected = undefined;
         this.data = Object.assign({
+            _list: [],
+            _selected: undefined,
             value: undefined,
-            multiple: false
+            multiple: false,
         }, this.data);
         this.supr();
 
         this.$watch('value', (newValue, oldValue) => {
-            if(!this.selected || this.selected.data.value !== newValue)
-                this.selected = this.list.find((item) => item.data.value === newValue);
+            if(!this.data._selected || this.data._selected.data.value !== newValue)
+                this.data._selected = this.data._list.find((item) => item.data.value === newValue);
 
             /**
              * @event change 选择值改变时触发
@@ -39,12 +39,12 @@ let ListView = Component.extend({
              */
             this.$emit('change', {
                 sender: this,
-                selected: this.selected,
+                selected: this.data._selected,
                 value: newValue
             });
         });
 
-        this.$watch('this.selected', (newValue, oldValue) => {
+        this.$watch('_selected', (newValue, oldValue) => {
             // 改变item的选择状态
             oldValue && (oldValue.data.selected = false);
             newValue && (newValue.data.selected = true);
@@ -65,7 +65,7 @@ let ListView = Component.extend({
         if(this.data.multiple)
             item.data.selected = !item.data.selected;
         else
-            this.selected = item;
+            this.data._selected = item;
 
         /**
          * @event select 选择某一项时触发
