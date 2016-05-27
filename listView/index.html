@@ -32,8 +32,9 @@
         <a class="u-logo" href="./"><h1>Regular UI</h1></a>
     </div>
 </div>
-<div class="g-bd"><div class="g-bdc"><div class="g-mn">
+<div class="g-bd"><div class="g-bdc"><div class="g-mn g-mn-center">
     <article class="m-article">
+        <h2>列表视图<small> ListView</small></h2>
         <h3 id="-">示例</h3>
 <h4 id="-">基本形式</h4>
 <div class="m-example"></div>
@@ -64,22 +65,29 @@
     <span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">div</span><span class="cm-tagcm-bracket">&gt;</span>
 <span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">div</span><span class="cm-tagcm-bracket">&gt;</span>
 </code></pre>
-<h4 id="-">禁用某一项，禁用组件</h4>
+<h4 id="-">只读，禁用，禁用某一项</h4>
 <div class="m-example"></div>
 
 <pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">div</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;g-row&quot;</span><span class="cm-tagcm-bracket">&gt;</span>
-    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">div</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;g-col g-col-6&quot;</span><span class="cm-tagcm-bracket">&gt;</span>
-        <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">listView</span><span class="cm-tagcm-bracket">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">div</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;g-col g-col-4&quot;</span><span class="cm-tagcm-bracket">&gt;</span>
+        <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">listView</span> <span class="cm-attribute">readonly</span><span class="cm-tagcm-bracketcm-error">&gt;</span>
             <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">item</span><span class="cm-tagcm-bracket">&gt;</span>选项1<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">item</span><span class="cm-tagcm-bracket">&gt;</span>
             <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">item</span><span class="cm-tagcm-bracket">&gt;</span>选项2<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">item</span><span class="cm-tagcm-bracket">&gt;</span>
-            <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">item</span> <span class="cm-attribute">disabled</span><span class="cm-tagcm-bracketcm-error">&gt;</span>选项3（禁用）<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">item</span><span class="cm-tagcm-bracket">&gt;</span>
+            <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">item</span> <span class="cm-attribute">selected</span><span class="cm-tagcm-bracketcm-error">&gt;</span>选项3<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">item</span><span class="cm-tagcm-bracket">&gt;</span>
         <span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">listView</span><span class="cm-tagcm-bracket">&gt;</span>
     <span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">div</span><span class="cm-tagcm-bracket">&gt;</span>
-    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">div</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;g-col g-col-6&quot;</span><span class="cm-tagcm-bracket">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">div</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;g-col g-col-4&quot;</span><span class="cm-tagcm-bracket">&gt;</span>
         <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">listView</span> <span class="cm-attribute">disabled</span><span class="cm-tagcm-bracketcm-error">&gt;</span>
             <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">item</span><span class="cm-tagcm-bracket">&gt;</span>选项1<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">item</span><span class="cm-tagcm-bracket">&gt;</span>
             <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">item</span><span class="cm-tagcm-bracket">&gt;</span>选项2<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">item</span><span class="cm-tagcm-bracket">&gt;</span>
             <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">item</span><span class="cm-tagcm-bracket">&gt;</span>选项3<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">item</span><span class="cm-tagcm-bracket">&gt;</span>
+        <span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">listView</span><span class="cm-tagcm-bracket">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">div</span><span class="cm-tagcm-bracket">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">div</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;g-col g-col-4&quot;</span><span class="cm-tagcm-bracket">&gt;</span>
+        <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">listView</span><span class="cm-tagcm-bracket">&gt;</span>
+            <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">item</span><span class="cm-tagcm-bracket">&gt;</span>选项1<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">item</span><span class="cm-tagcm-bracket">&gt;</span>
+            <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">item</span><span class="cm-tagcm-bracket">&gt;</span>选项2<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">item</span><span class="cm-tagcm-bracket">&gt;</span>
+            <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">item</span> <span class="cm-attribute">disabled</span><span class="cm-tagcm-bracketcm-error">&gt;</span>选项3（禁用）<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">item</span><span class="cm-tagcm-bracket">&gt;</span>
         <span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">listView</span><span class="cm-tagcm-bracket">&gt;</span>
     <span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">div</span><span class="cm-tagcm-bracket">&gt;</span>
 <span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">div</span><span class="cm-tagcm-bracket">&gt;</span>
@@ -118,7 +126,7 @@
     {/list}
 <span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">listView</span><span class="cm-tagcm-bracket">&gt;</span>
 </code></pre>
-<pre class="lang-javascript"><code><span class="cm-keyword">var</span> <span class="cm-variable">component</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">RGUI</span>.<span class="cm-property">Component</span>({
+<pre class="lang-javascript"><code><span class="cm-keyword">let</span> <span class="cm-variable">component</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">RGUI</span>.<span class="cm-property">Component</span>({
     <span class="cm-property">template</span>: <span class="cm-variable">template</span>,
     <span class="cm-property">data</span>: {
         <span class="cm-property">list</span>: [
@@ -192,7 +200,7 @@ var index = 0;
     component.$inject($$(".m-example")[index]);
 })(index++);
 (function (index) {
-    var template = "<div class=\"g-row\">\n    <div class=\"g-col g-col-6\">\n        <listView>\n            <item>选项1</item>\n            <item>选项2</item>\n            <item disabled>选项3（禁用）</item>\n        </listView>\n    </div>\n    <div class=\"g-col g-col-6\">\n        <listView disabled>\n            <item>选项1</item>\n            <item>选项2</item>\n            <item>选项3</item>\n        </listView>\n    </div>\n</div>";
+    var template = "<div class=\"g-row\">\n    <div class=\"g-col g-col-4\">\n        <listView readonly>\n            <item>选项1</item>\n            <item>选项2</item>\n            <item selected>选项3</item>\n        </listView>\n    </div>\n    <div class=\"g-col g-col-4\">\n        <listView disabled>\n            <item>选项1</item>\n            <item>选项2</item>\n            <item>选项3</item>\n        </listView>\n    </div>\n    <div class=\"g-col g-col-4\">\n        <listView>\n            <item>选项1</item>\n            <item>选项2</item>\n            <item disabled>选项3（禁用）</item>\n        </listView>\n    </div>\n</div>";
     var component = new RGUI.Component({
         template: template
     });

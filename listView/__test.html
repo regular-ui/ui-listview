@@ -32,8 +32,9 @@
         <a class="u-logo" href="./"><h1>Regular UI</h1></a>
     </div>
 </div>
-<div class="g-bd"><div class="g-bdc"><div class="g-mn">
+<div class="g-bd"><div class="g-bdc"><div class="g-mn g-mn-center">
     <article class="m-article">
+        <h2>列表视图<small> ListView</small></h2>
         <h4 id="test1">Test1</h4>
 <div class="m-example"></div>
 
@@ -77,7 +78,7 @@
 
 <pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">listView</span><span class="cm-tagcm-bracket">&gt;</span>
     {#list list as item}
-    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">item</span><span class="cm-tagcm-bracket">&gt;</span>{item.course}<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">item</span><span class="cm-tagcm-bracket">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">item</span> <span class="cm-attribute">selected</span>=<span class="cm-attribute">{item.selected}</span><span class="cm-tagcm-bracketcm-error">&gt;</span>{item.course}<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">item</span><span class="cm-tagcm-bracket">&gt;</span>
     {/list}
 <span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">listView</span><span class="cm-tagcm-bracket">&gt;</span>
 <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">button</span> <span class="cm-attribute">on-click</span>=<span class="cm-attribute">{this.getList()}</span><span class="cm-tagcm-bracketcm-error">&gt;</span>getList<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">button</span><span class="cm-tagcm-bracket">&gt;</span>
@@ -138,7 +139,13 @@
 <h4 id="select">select</h4>
 <div class="m-example"></div>
 
-<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">select</span> <span class="cm-attribute">value</span>=<span class="cm-attribute">1</span><span class="cm-tagcm-bracketcm-error">&gt;</span>
+<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">select</span><span class="cm-tagcm-bracket">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">option</span><span class="cm-tagcm-bracket">&gt;</span>Test2<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">option</span><span class="cm-tagcm-bracket">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">option</span> <span class="cm-attribute">selected</span><span class="cm-tagcm-bracketcm-error">&gt;</span>Test1<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">option</span><span class="cm-tagcm-bracket">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">option</span><span class="cm-tagcm-bracket">&gt;</span>Test2<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">option</span><span class="cm-tagcm-bracket">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">option</span> <span class="cm-attribute">selected</span><span class="cm-tagcm-bracketcm-error">&gt;</span>Test3<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">option</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">select</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">select</span> <span class="cm-attribute">value</span>=<span class="cm-attribute">1</span><span class="cm-tagcm-bracketcm-error">&gt;</span>
     <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">option</span> <span class="cm-attribute">value</span>=<span class="cm-attribute">2</span><span class="cm-tagcm-bracketcm-error">&gt;</span>Test2<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">option</span><span class="cm-tagcm-bracket">&gt;</span>
     <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">option</span> <span class="cm-attribute">value</span>=<span class="cm-attribute">3</span><span class="cm-tagcm-bracketcm-error">&gt;</span>Test1<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">option</span><span class="cm-tagcm-bracket">&gt;</span>
     <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">option</span> <span class="cm-attribute">value</span>=<span class="cm-attribute">5</span><span class="cm-tagcm-bracketcm-error">&gt;</span>Test2<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">option</span><span class="cm-tagcm-bracket">&gt;</span>
@@ -185,7 +192,7 @@ var index = 0;
     component.$inject($$(".m-example")[index]);
 })(index++);
 (function (index) {
-    var template = '<listView>\n    {#list list as item}\n    <item>{item.course}</item>\n    {/list}\n</listView>\n<button on-click={this.getList()}>getList</button>\n<select multiple>\n    {#list list as item}\n    <option selected={item.selected}>{item.course}</option>\n    {/list}\n</select>\n{value}';
+    var template = '<listView>\n    {#list list as item}\n    <item selected={item.selected}>{item.course}</item>\n    {/list}\n</listView>\n<button on-click={this.getList()}>getList</button>\n<select multiple>\n    {#list list as item}\n    <option selected={item.selected}>{item.course}</option>\n    {/list}\n</select>\n{value}';
     var component = new RGUI.Component({
         template: template,
         data: {
@@ -217,7 +224,7 @@ var index = 0;
     component.$inject($$(".m-example")[index]);
 })(index++);
 (function (index) {
-    var template = '<select value=1>\n    <option value=2>Test2</option>\n    <option value=3>Test1</option>\n    <option value=5>Test2</option>\n    <option value=6 selected>Test3</option>\n</select>';
+    var template = '<select>\n    <option>Test2</option>\n    <option selected>Test1</option>\n    <option>Test2</option>\n    <option selected>Test3</option>\n</select>\n<select value=1>\n    <option value=2>Test2</option>\n    <option value=3>Test1</option>\n    <option value=5>Test2</option>\n    <option value=6 selected>Test3</option>\n</select>';
     var component = new RGUI.Component({
         template: template
     });

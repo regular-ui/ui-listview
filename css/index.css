@@ -20,6 +20,9 @@
 	cursor:not-allowed;
 	background:none;
 }
+.m-listView >li.z-divider{
+	cursor:default;
+}
 .m-listView.z-dis >li{
 	cursor:not-allowed;
 	background:none;

@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<!-- 该文件由rgui-tools自动生成 -->
+<meta charset="utf-8">
+<title>Regular UI</title>
+<meta name="author" content="Rainfore">
+<meta name="keywords" content="Regular,UI,JavaScript,Framework,MVC,MVVM">
+<meta name="description" content="Regular UI">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<link rel="icon" href="http://regular-ui.github.io/img/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="http://regular-ui.github.io/img/favicon.ico" type="image/x-icon">
+<link rel="stylesheet" href="http://regular-ui.github.io/css/doc.default.min.css">
+<link rel="stylesheet" href="../css/index.css">
+<!--[if lt IE9]>
+<script>
+(function() {
+    if (!
+    /*@cc_on!@*/
+    0) return;
+    var e = 'abbr, article, aside, audio, canvas, datalist, details, dialog, eventsource, figure, footer, header, hgroup, mark, menu, meter, nav, output, progress, section, time, video'.split(', ');
+    var i= e.length;
+    while (i--)
+        document.createElement(e[i]);
+})();
+</script>
+<![endif]-->
+</head>
+<body>
+<div class="g-top g-top-fixed">
+    <div class="g-topc">
+        <a class="u-logo" href="./"><h1>Regular UI</h1></a>
+    </div>
+</div>
+<div class="g-bd"><div class="g-bdc"><div class="g-mn g-mn-center">
+    <article class="m-article">
+        <h2>列表视图<small> ListView</small></h2>
+        <h3 id="-">案例</h3>
+<h4 id="pills">Pills</h4>
+<div class="m-example"><style>.m-pills {list-style: none; margin: 0; padding: 0; font-size: 0;}
+.m-pills>li {
+    box-sizing: border-box; display: inline-block;
+    font-size: 14px; text-align: center; cursor: pointer;
+    height: 32px; line-height: 32px; padding: 0 16px; margin-right: -1px;
+    background: white; color: #999; border: 1px solid #67aaf5;
+}
+.m-pills>li:first-child {border-radius: 2px 0 0 2px;}
+.m-pills>li:last-child {border-radius: 0 2px 2px 0;}
+.m-pills>li.z-sel {position: relative; background: #67aaf5; color: #fff;}
+.m-pills>li.z-dis {cursor: not-allowed; background-color: #f5f5f5; color: #ccc; border-color: #ccd5db;}</style></div>
+
+<pre class="lang-css"><code><span class="cm-qualifier">.m-pills</span> {<span class="cm-property">list-style</span>: <span class="cm-atom">none</span>; <span class="cm-property">margin</span>: <span class="cm-number">0</span>; <span class="cm-property">padding</span>: <span class="cm-number">0</span>; <span class="cm-property">font-size</span>: <span class="cm-number">0</span>;}
+<span class="cm-qualifier">.m-pills</span>&gt;<span class="cm-tag">li</span> {
+    <span class="cm-property">box-sizing</span>: <span class="cm-atom">border-box</span>; <span class="cm-property">display</span>: <span class="cm-atom">inline-block</span>;
+    <span class="cm-property">font-size</span>: <span class="cm-number">14px</span>; <span class="cm-property">text-align</span>: <span class="cm-atom">center</span>; <span class="cm-property">cursor</span>: <span class="cm-atom">pointer</span>;
+    <span class="cm-property">height</span>: <span class="cm-number">32px</span>; <span class="cm-property">line-height</span>: <span class="cm-number">32px</span>; <span class="cm-property">padding</span>: <span class="cm-number">0</span> <span class="cm-number">16px</span>; <span class="cm-property">margin-right</span>: <span class="cm-number">-1px</span>;
+    <span class="cm-property">background</span>: <span class="cm-keyword">white</span>; <span class="cm-property">color</span>: <span class="cm-atom">#999</span>; <span class="cm-property">border</span>: <span class="cm-number">1px</span> <span class="cm-atom">solid</span> <span class="cm-atom">#67aaf5</span>;
+}
+<span class="cm-qualifier">.m-pills</span>&gt;<span class="cm-tag">li</span>:<span class="cm-variable-3">first-child</span> {<span class="cm-property">border-radius</span>: <span class="cm-number">2px</span> <span class="cm-number">0</span> <span class="cm-number">0</span> <span class="cm-number">2px</span>;}
+<span class="cm-qualifier">.m-pills</span>&gt;<span class="cm-tag">li</span>:<span class="cm-variable-3">last-child</span> {<span class="cm-property">border-radius</span>: <span class="cm-number">0</span> <span class="cm-number">2px</span> <span class="cm-number">2px</span> <span class="cm-number">0</span>;}
+<span class="cm-qualifier">.m-pills</span>&gt;<span class="cm-tag">li</span><span class="cm-qualifier">.z-sel</span> {<span class="cm-property">position</span>: <span class="cm-atom">relative</span>; <span class="cm-property">background</span>: <span class="cm-atom">#67aaf5</span>; <span class="cm-property">color</span>: <span class="cm-atom">#fff</span>;}
+<span class="cm-qualifier">.m-pills</span>&gt;<span class="cm-tag">li</span><span class="cm-qualifier">.z-dis</span> {<span class="cm-property">cursor</span>: <span class="cm-atom">not-allowed</span>; <span class="cm-property">background-color</span>: <span class="cm-atom">#f5f5f5</span>; <span class="cm-property">color</span>: <span class="cm-atom">#ccc</span>; <span class="cm-property">border-color</span>: <span class="cm-atom">#ccd5db</span>;}
+</code></pre>
+<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">pills</span><span class="cm-tagcm-bracket">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">pill</span><span class="cm-tagcm-bracket">&gt;</span>1GB<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">pill</span><span class="cm-tagcm-bracket">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">pill</span><span class="cm-tagcm-bracket">&gt;</span>2GB<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">pill</span><span class="cm-tagcm-bracket">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">pill</span><span class="cm-tagcm-bracket">&gt;</span>4GB<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">pill</span><span class="cm-tagcm-bracket">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">pill</span> <span class="cm-attribute">disabled</span><span class="cm-tagcm-bracketcm-error">&gt;</span>8GB<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">pill</span><span class="cm-tagcm-bracket">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">pill</span> <span class="cm-attribute">disabled</span><span class="cm-tagcm-bracketcm-error">&gt;</span>16GB<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">pill</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">pills</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">p</span><span class="cm-tagcm-bracket">&gt;</span><span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">p</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">pills</span><span class="cm-tagcm-bracket">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">pill</span> <span class="cm-attribute">selected</span><span class="cm-tagcm-bracketcm-error">&gt;</span>带宽<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">pill</span><span class="cm-tagcm-bracket">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">pill</span><span class="cm-tagcm-bracket">&gt;</span>流量<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">pill</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">pills</span><span class="cm-tagcm-bracket">&gt;</span>
+</code></pre>
+<pre class="lang-javascript"><code><span class="cm-variable">RGUI</span>.<span class="cm-property">Pills</span> <span class="cm-operator">=</span> <span class="cm-variable">RGUI</span>.<span class="cm-property">ListView</span>.<span class="cm-property">extend</span>({
+    <span class="cm-property">name</span>: <span class="cm-string">&#39;pills&#39;</span>,
+    <span class="cm-property">template</span>: <span class="cm-string">&#39;&lt;ul class=&quot;m-pills {class}&quot; z-dis={disabled} r-hide={!visible}&gt;{#inc this.$body}&lt;/ul&gt;&#39;</span>,
+});
+<span class="cm-variable">RGUI</span>.<span class="cm-property">Pill</span> <span class="cm-operator">=</span> <span class="cm-variable">RGUI</span>.<span class="cm-property">Item</span>.<span class="cm-property">extend</span>({<span class="cm-property">name</span>: <span class="cm-string">&#39;pill&#39;</span>});
+
+<span class="cm-keyword">let</span> <span class="cm-variable">component</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">RGUI</span>.<span class="cm-property">Component</span>({
+    <span class="cm-property">template</span>: <span class="cm-variable">template</span>
+});
+</code></pre>
+<h4 id="-">选择镜像</h4>
+<div class="m-example"><style>.m-repoCards {font-size: 0;}
+.u-repoCard {
+    position: relative; display: inline-block; cursor: pointer;
+    width: 100px; font-size: 14px; margin: 8px;
+    background: #fff; color: #666; border: 1px solid #e9eff3;
+    border-radius: 1px; transition: box-shadow 0.2s;
+}
+.u-repoCard .repoCard_info {background-color: #fff; border: 1px solid #fff; border-bottom: 0;}
+.u-repoCard .repoCard_logo {margin: 12px 0 8px 0; height: 44px; text-align: center; font-size: 32px; color: #67aaf5;}
+.u-repoCard .repoCard_name {
+    padding: 0 10px; height: 26px; line-height: 26px; font-size: 14px; color: #333;
+    text-align: center; overflow: hidden; word-wrap: normal; white-space: nowrap; text-overflow: ellipsis;
+}
+.u-repoCard .repoCard_version {
+    position: relative; height: 28px; line-height: 28px; padding: 0 20px; background-color: #f4f8fa;
+    text-align: center; overflow: hidden; word-wrap: normal; white-space: nowrap; text-overflow: ellipsis;
+}
+.u-repoCard:hover {box-shadow: 0 0 10px 0 rgba(80,90,109,0.24);}
+.u-repoCard.z-sel {border-color: #67aaf5;}
+.u-repoCard.z-sel .repoCard_info {border-color: #67aaf5;}
+.u-repoCard.z-sel .repoCard_version {color: #fff; background-color: #67aaf5;}</style></div>
+
+<pre class="lang-css"><code><span class="cm-qualifier">.m-repoCards</span> {<span class="cm-property">font-size</span>: <span class="cm-number">0</span>;}
+<span class="cm-qualifier">.u-repoCard</span> {
+    <span class="cm-property">position</span>: <span class="cm-atom">relative</span>; <span class="cm-property">display</span>: <span class="cm-atom">inline-block</span>; <span class="cm-property">cursor</span>: <span class="cm-atom">pointer</span>;
+    <span class="cm-property">width</span>: <span class="cm-number">100px</span>; <span class="cm-property">font-size</span>: <span class="cm-number">14px</span>; <span class="cm-property">margin</span>: <span class="cm-number">8px</span>;
+    <span class="cm-property">background</span>: <span class="cm-atom">#fff</span>; <span class="cm-property">color</span>: <span class="cm-atom">#666</span>; <span class="cm-property">border</span>: <span class="cm-number">1px</span> <span class="cm-atom">solid</span> <span class="cm-atom">#e9eff3</span>;
+    <span class="cm-property">border-radius</span>: <span class="cm-number">1px</span>; <span class="cm-property">transition</span>: <span class="cm-variable">box-shadow</span> <span class="cm-number">0.2s</span>;
+}
+<span class="cm-qualifier">.u-repoCard</span> <span class="cm-qualifier">.repoCard_info</span> {<span class="cm-property">background-color</span>: <span class="cm-atom">#fff</span>; <span class="cm-property">border</span>: <span class="cm-number">1px</span> <span class="cm-atom">solid</span> <span class="cm-atom">#fff</span>; <span class="cm-property">border-bottom</span>: <span class="cm-number">0</span>;}
+<span class="cm-qualifier">.u-repoCard</span> <span class="cm-qualifier">.repoCard_logo</span> {<span class="cm-property">margin</span>: <span class="cm-number">12px</span> <span class="cm-number">0</span> <span class="cm-number">8px</span> <span class="cm-number">0</span>; <span class="cm-property">height</span>: <span class="cm-number">44px</span>; <span class="cm-property">text-align</span>: <span class="cm-atom">center</span>; <span class="cm-property">font-size</span>: <span class="cm-number">32px</span>; <span class="cm-property">color</span>: <span class="cm-atom">#67aaf5</span>;}
+<span class="cm-qualifier">.u-repoCard</span> <span class="cm-qualifier">.repoCard_name</span> {
+    <span class="cm-property">padding</span>: <span class="cm-number">0</span> <span class="cm-number">10px</span>; <span class="cm-property">height</span>: <span class="cm-number">26px</span>; <span class="cm-property">line-height</span>: <span class="cm-number">26px</span>; <span class="cm-property">font-size</span>: <span class="cm-number">14px</span>; <span class="cm-property">color</span>: <span class="cm-atom">#333</span>;
+    <span class="cm-property">text-align</span>: <span class="cm-atom">center</span>; <span class="cm-property">overflow</span>: <span class="cm-atom">hidden</span>; <span class="cm-property">word-wrap</span>: <span class="cm-atom">normal</span>; <span class="cm-property">white-space</span>: <span class="cm-atom">nowrap</span>; <span class="cm-property">text-overflow</span>: <span class="cm-atom">ellipsis</span>;
+}
+<span class="cm-qualifier">.u-repoCard</span> <span class="cm-qualifier">.repoCard_version</span> {
+    <span class="cm-property">position</span>: <span class="cm-atom">relative</span>; <span class="cm-property">height</span>: <span class="cm-number">28px</span>; <span class="cm-property">line-height</span>: <span class="cm-number">28px</span>; <span class="cm-property">padding</span>: <span class="cm-number">0</span> <span class="cm-number">20px</span>; <span class="cm-property">background-color</span>: <span class="cm-atom">#f4f8fa</span>;
+    <span class="cm-property">text-align</span>: <span class="cm-atom">center</span>; <span class="cm-property">overflow</span>: <span class="cm-atom">hidden</span>; <span class="cm-property">word-wrap</span>: <span class="cm-atom">normal</span>; <span class="cm-property">white-space</span>: <span class="cm-atom">nowrap</span>; <span class="cm-property">text-overflow</span>: <span class="cm-atom">ellipsis</span>;
+}
+<span class="cm-qualifier">.u-repoCard</span>:<span class="cm-variable-3">hover</span> {<span class="cm-property">box-shadow</span>: <span class="cm-number">0</span> <span class="cm-number">0</span> <span class="cm-number">10px</span> <span class="cm-number">0</span> <span class="cm-atom">rgba</span>(<span class="cm-number">80</span>,<span class="cm-number">90</span>,<span class="cm-number">109</span>,<span class="cm-number">0.24</span>);}
+<span class="cm-qualifier">.u-repoCard</span><span class="cm-qualifier">.z-sel</span> {<span class="cm-property">border-color</span>: <span class="cm-atom">#67aaf5</span>;}
+<span class="cm-qualifier">.u-repoCard</span><span class="cm-qualifier">.z-sel</span> <span class="cm-qualifier">.repoCard_info</span> {<span class="cm-property">border-color</span>: <span class="cm-atom">#67aaf5</span>;}
+<span class="cm-qualifier">.u-repoCard</span><span class="cm-qualifier">.z-sel</span> <span class="cm-qualifier">.repoCard_version</span> {<span class="cm-property">color</span>: <span class="cm-atom">#fff</span>; <span class="cm-property">background-color</span>: <span class="cm-atom">#67aaf5</span>;}
+</code></pre>
+<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">repoCards</span><span class="cm-tagcm-bracket">&gt;</span>
+    {#list repos as repo}
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">repoCard</span> <span class="cm-attribute">value</span>=<span class="cm-attribute">{repo}</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span>
+    {/list}
+<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">repoCards</span><span class="cm-tagcm-bracket">&gt;</span>
+</code></pre>
+<pre class="lang-javascript"><code><span class="cm-variable">RGUI</span>.<span class="cm-property">RepoCards</span> <span class="cm-operator">=</span> <span class="cm-variable">RGUI</span>.<span class="cm-property">ListView</span>.<span class="cm-property">extend</span>({
+    <span class="cm-property">name</span>: <span class="cm-string">&#39;repoCards&#39;</span>,
+    <span class="cm-property">template</span>: <span class="cm-string">&#39;&lt;div class=&quot;m-repoCards {class}&quot; z-dis={disabled} r-hide={!visible}&gt;{#inc this.$body}&lt;/div&gt;&#39;</span>,
+});
+<span class="cm-variable">RGUI</span>.<span class="cm-property">RepoCard</span> <span class="cm-operator">=</span> <span class="cm-variable">RGUI</span>.<span class="cm-property">Item</span>.<span class="cm-property">extend</span>({
+    <span class="cm-property">name</span>: <span class="cm-string">&#39;repoCard&#39;</span>,
+    <span class="cm-property">template</span>: <span class="cm-string-2">`&lt;div class=&quot;u-repoCard {class}&quot; z-sel={selected} z-dis={disabled} title={title} r-hide={!visible} on-click={this.select()}&gt;</span>
+        <span class="cm-string-2">&lt;div class=&quot;repoCard_info&quot;&gt;</span>
+            <span class="cm-string-2">&lt;div class=&quot;repoCard_logo&quot;&gt;&lt;i class=&quot;u-icon u-icon-html5&quot;&gt;&lt;/i&gt;&lt;/div&gt;</span>
+            <span class="cm-string-2">&lt;div class=&quot;repoCard_name&quot;&gt;{value.name}&lt;/div&gt;</span>
+        <span class="cm-string-2">&lt;/div&gt;</span>
+        <span class="cm-string-2">&lt;div class=&quot;repoCard_version&quot;&gt;{value.version}&lt;/div&gt;</span>
+    <span class="cm-string-2">&lt;/div&gt;`</span>
+});
+
+<span class="cm-keyword">let</span> <span class="cm-variable">component</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">RGUI</span>.<span class="cm-property">Component</span>({
+    <span class="cm-property">template</span>: <span class="cm-variable">template</span>,
+    <span class="cm-property">data</span>: {
+        <span class="cm-property">repos</span>: [
+            {<span class="cm-property">name</span>: <span class="cm-string">&#39;centos&#39;</span>, <span class="cm-property">version</span>: <span class="cm-string">&#39;6.5&#39;</span>},
+            {<span class="cm-property">name</span>: <span class="cm-string">&#39;ubuntu&#39;</span>, <span class="cm-property">version</span>: <span class="cm-string">&#39;14.04&#39;</span>},
+            {<span class="cm-property">name</span>: <span class="cm-string">&#39;LAMP&#39;</span>, <span class="cm-property">version</span>: <span class="cm-string">&#39;latest&#39;</span>},
+            {<span class="cm-property">name</span>: <span class="cm-string">&#39;mysql&#39;</span>, <span class="cm-property">version</span>: <span class="cm-string">&#39;5.6&#39;</span>},
+            {<span class="cm-property">name</span>: <span class="cm-string">&#39;redis&#39;</span>, <span class="cm-property">version</span>: <span class="cm-string">&#39;2.8.4&#39;</span>},
+        ]
+    }
+});
+</code></pre>
+<h4 id="-">选择镜像 - 升级版</h4>
+<div class="m-example"><style>.m-repoCards-lg {width: 590px; padding: 0 20px; border: 1px solid #e1e8ed; border-radius: 1px;}
+.m-repoCards .repoCards_tt {font-size: 14px; line-height: 20px; margin: 8px 8px 0;}</style></div>
+
+<pre class="lang-css"><code><span class="cm-qualifier">.m-repoCards-lg</span> {<span class="cm-property">width</span>: <span class="cm-number">590px</span>; <span class="cm-property">padding</span>: <span class="cm-number">0</span> <span class="cm-number">20px</span>; <span class="cm-property">border</span>: <span class="cm-number">1px</span> <span class="cm-atom">solid</span> <span class="cm-atom">#e1e8ed</span>; <span class="cm-property">border-radius</span>: <span class="cm-number">1px</span>;}
+<span class="cm-qualifier">.m-repoCards</span> <span class="cm-qualifier">.repoCards_tt</span> {<span class="cm-property">font-size</span>: <span class="cm-number">14px</span>; <span class="cm-property">line-height</span>: <span class="cm-number">20px</span>; <span class="cm-property">margin</span>: <span class="cm-number">8px</span> <span class="cm-number">8px</span> <span class="cm-number">0</span>;}
+</code></pre>
+<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">repoCards</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;m-repoCards-lg&quot;</span><span class="cm-tagcm-bracket">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">div</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;repoCards_tt&quot;</span><span class="cm-tagcm-bracket">&gt;</span>我的镜像<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">a</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;f-fr&quot;</span> <span class="cm-attribute">on-click</span>=<span class="cm-attribute">{showAll</span> = <span class="cm-attribute">!showAll}</span><span class="cm-tagcm-bracketcm-error">&gt;</span>{showAll ? &#39;部分显示&#39; : &#39;全部显示(9)&#39;}<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">a</span><span class="cm-tagcm-bracket">&gt;</span><span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">div</span><span class="cm-tagcm-bracket">&gt;</span>
+    {#list myRepos as repo}
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">repoCard</span> <span class="cm-attribute">value</span>=<span class="cm-attribute">{repo}</span> <span class="cm-attribute">visible</span>=<span class="cm-attribute">{repo_index</span> <span class="cm-error">&lt; 5 || showAll} /&gt;</span>
+    {/list}
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">div</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;repoCards_tt&quot;</span><span class="cm-tagcm-bracket">&gt;</span>官方镜像<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">div</span><span class="cm-tagcm-bracket">&gt;</span>
+    {#list repos as repo}
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">repoCard</span> <span class="cm-attribute">value</span>=<span class="cm-attribute">{repo}</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span>
+    {/list}
+<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">repoCards</span><span class="cm-tagcm-bracket">&gt;</span>
+</code></pre>
+<pre class="lang-javascript"><code><span class="cm-keyword">let</span> <span class="cm-variable">component</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">RGUI</span>.<span class="cm-property">Component</span>({
+    <span class="cm-property">template</span>: <span class="cm-variable">template</span>,
+    <span class="cm-property">data</span>: {
+        <span class="cm-property">showAll</span>: <span class="cm-atom">false</span>,
+        <span class="cm-property">myRepos</span>: [
+            {<span class="cm-property">name</span>: <span class="cm-string">&#39;106807_test01&#39;</span>, <span class="cm-property">version</span>: <span class="cm-string">&#39;3b3c06f7_20160419144110&#39;</span>},
+            {<span class="cm-property">name</span>: <span class="cm-string">&#39;67572_testhttps&#39;</span>, <span class="cm-property">version</span>: <span class="cm-string">&#39;dd1c30a4_20160203133928&#39;</span>},
+            {<span class="cm-property">name</span>: <span class="cm-string">&#39;66901_nnnn&#39;</span>, <span class="cm-property">version</span>: <span class="cm-string">&#39;3b3c06f7_20160409125741&#39;</span>},
+            {<span class="cm-property">name</span>: <span class="cm-string">&#39;66910_python&#39;</span>, <span class="cm-property">version</span>: <span class="cm-string">&#39;350a95e3_20160316154903&#39;</span>},
+            {<span class="cm-property">name</span>: <span class="cm-string">&#39;66911_tomcat&#39;</span>, <span class="cm-property">version</span>: <span class="cm-string">&#39;290000b5_20160331204310&#39;</span>},
+            {<span class="cm-property">name</span>: <span class="cm-string">&#39;66908_php&#39;</span>, <span class="cm-property">version</span>: <span class="cm-string">&#39;290000b5_20160331204144&#39;</span>},
+            {<span class="cm-property">name</span>: <span class="cm-string">&#39;87320_boot&#39;</span>, <span class="cm-property">version</span>: <span class="cm-string">&#39;350a95e3_20160316154903&#39;</span>},
+            {<span class="cm-property">name</span>: <span class="cm-string">&#39;66451_nodejs&#39;</span>, <span class="cm-property">version</span>: <span class="cm-string">&#39;3b3c06f7_20160419144110&#39;</span>},
+            {<span class="cm-property">name</span>: <span class="cm-string">&#39;64259_test&#39;</span>, <span class="cm-property">version</span>: <span class="cm-string">&#39;dd1c30a4_20160203133928&#39;</span>},
+        ],
+        <span class="cm-variable">repos</span>: [
+            {<span class="cm-variable">name</span>: <span class="cm-string">&#39;centos&#39;</span>, <span class="cm-variable">version</span>: <span class="cm-string">&#39;6.5&#39;</span>},
+            {<span class="cm-variable">name</span>: <span class="cm-string">&#39;ubuntu&#39;</span>, <span class="cm-variable">version</span>: <span class="cm-string">&#39;14.04&#39;</span>},
+            {<span class="cm-variable">name</span>: <span class="cm-string">&#39;LAMP&#39;</span>, <span class="cm-variable">version</span>: <span class="cm-string">&#39;latest&#39;</span>},
+            {<span class="cm-variable">name</span>: <span class="cm-string">&#39;mysql&#39;</span>, <span class="cm-variable">version</span>: <span class="cm-string">&#39;5.6&#39;</span>},
+            {<span class="cm-variable">name</span>: <span class="cm-string">&#39;redis&#39;</span>, <span class="cm-variable">version</span>: <span class="cm-string">&#39;2.8.4&#39;</span>},
+        ]
+    }
+});
+</code></pre>
+<h4 id="-">选择密钥</h4>
+<div class="m-example"><style>.m-sshKeys {font-size: 0;}
+.u-sshKey {
+    display: inline-block; position: relative; cursor: pointer; 
+    margin: 5px 0; margin-right: 20px; padding: 0 10px; width: 128px; height: 35px; line-height: 35px; font-size: 14px; 
+    background: #f7f8fa; color: #333; border: 1px solid #d7dae0; border-radius: 2px;
+}
+.u-sshKey>span {display: block; overflow: hidden; word-wrap: normal; white-space: nowrap; text-overflow: ellipsis;}
+.u-sshKey>i {
+    display: none; position: absolute; z-index: 2; right: -8px; bottom: -6px;
+    width: 18px; height: 18px; line-height: 18px; font-size: 10px;
+    background: #67aaf5; color: white; border-radius: 100%;
+}
+.u-sshKey:hover {background: #edf1f3; border: 1px solid #d7dae0;}
+.u-sshKey.z-sel {background: #f7fcfe; border-color: #67aaf5; box-shadow: inset 0 0 0 1px #67aaf5;}
+.u-sshKey.z-sel>i {display: inline-block;}
+.u-sshKey.z-dis {cursor: not-allowed; background: #f7f8fa; color: #ccc;}</style></div>
+
+<pre class="lang-css"><code><span class="cm-qualifier">.m-sshKeys</span> {<span class="cm-property">font-size</span>: <span class="cm-number">0</span>;}
+<span class="cm-qualifier">.u-sshKey</span> {
+    <span class="cm-property">display</span>: <span class="cm-atom">inline-block</span>; <span class="cm-property">position</span>: <span class="cm-atom">relative</span>; <span class="cm-property">cursor</span>: <span class="cm-atom">pointer</span>; 
+    <span class="cm-property">margin</span>: <span class="cm-number">5px</span> <span class="cm-number">0</span>; <span class="cm-property">margin-right</span>: <span class="cm-number">20px</span>; <span class="cm-property">padding</span>: <span class="cm-number">0</span> <span class="cm-number">10px</span>; <span class="cm-property">width</span>: <span class="cm-number">128px</span>; <span class="cm-property">height</span>: <span class="cm-number">35px</span>; <span class="cm-property">line-height</span>: <span class="cm-number">35px</span>; <span class="cm-property">font-size</span>: <span class="cm-number">14px</span>; 
+    <span class="cm-property">background</span>: <span class="cm-atom">#f7f8fa</span>; <span class="cm-property">color</span>: <span class="cm-atom">#333</span>; <span class="cm-property">border</span>: <span class="cm-number">1px</span> <span class="cm-atom">solid</span> <span class="cm-atom">#d7dae0</span>; <span class="cm-property">border-radius</span>: <span class="cm-number">2px</span>;
+}
+<span class="cm-qualifier">.u-sshKey</span>&gt;<span class="cm-tag">span</span> {<span class="cm-property">display</span>: <span class="cm-atom">block</span>; <span class="cm-property">overflow</span>: <span class="cm-atom">hidden</span>; <span class="cm-property">word-wrap</span>: <span class="cm-atom">normal</span>; <span class="cm-property">white-space</span>: <span class="cm-atom">nowrap</span>; <span class="cm-property">text-overflow</span>: <span class="cm-atom">ellipsis</span>;}
+<span class="cm-qualifier">.u-sshKey</span>&gt;<span class="cm-tag">i</span> {
+    <span class="cm-property">display</span>: <span class="cm-atom">none</span>; <span class="cm-property">position</span>: <span class="cm-atom">absolute</span>; <span class="cm-property">z-index</span>: <span class="cm-number">2</span>; <span class="cm-property">right</span>: <span class="cm-number">-8px</span>; <span class="cm-property">bottom</span>: <span class="cm-number">-6px</span>;
+    <span class="cm-property">width</span>: <span class="cm-number">18px</span>; <span class="cm-property">height</span>: <span class="cm-number">18px</span>; <span class="cm-property">line-height</span>: <span class="cm-number">18px</span>; <span class="cm-property">font-size</span>: <span class="cm-number">10px</span>;
+    <span class="cm-property">background</span>: <span class="cm-atom">#67aaf5</span>; <span class="cm-property">color</span>: <span class="cm-keyword">white</span>; <span class="cm-property">border-radius</span>: <span class="cm-number">100%</span>;
+}
+<span class="cm-qualifier">.u-sshKey</span>:<span class="cm-variable-3">hover</span> {<span class="cm-property">background</span>: <span class="cm-atom">#edf1f3</span>; <span class="cm-property">border</span>: <span class="cm-number">1px</span> <span class="cm-atom">solid</span> <span class="cm-atom">#d7dae0</span>;}
+<span class="cm-qualifier">.u-sshKey</span><span class="cm-qualifier">.z-sel</span> {<span class="cm-property">background</span>: <span class="cm-atom">#f7fcfe</span>; <span class="cm-property">border-color</span>: <span class="cm-atom">#67aaf5</span>; <span class="cm-property">box-shadow</span>: <span class="cm-atom">inset</span> <span class="cm-number">0</span> <span class="cm-number">0</span> <span class="cm-number">0</span> <span class="cm-number">1px</span> <span class="cm-atom">#67aaf5</span>;}
+<span class="cm-qualifier">.u-sshKey</span><span class="cm-qualifier">.z-sel</span>&gt;<span class="cm-tag">i</span> {<span class="cm-property">display</span>: <span class="cm-atom">inline-block</span>;}
+<span class="cm-qualifier">.u-sshKey</span><span class="cm-qualifier">.z-dis</span> {<span class="cm-property">cursor</span>: <span class="cm-atom">not-allowed</span>; <span class="cm-property">background</span>: <span class="cm-atom">#f7f8fa</span>; <span class="cm-property">color</span>: <span class="cm-atom">#ccc</span>;}
+</code></pre>
+<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">sshKeys</span><span class="cm-tagcm-bracket">&gt;</span>
+    {#list sshKeys as sshKey}
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">sshKey</span> <span class="cm-attribute">title</span>=<span class="cm-attribute">{sshKey}</span><span class="cm-tagcm-bracketcm-error">&gt;</span>{sshKey}<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">sshKey</span><span class="cm-tagcm-bracket">&gt;</span>
+    {/list}
+<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">sshKeys</span><span class="cm-tagcm-bracket">&gt;</span>
+</code></pre>
+<pre class="lang-javascript"><code><span class="cm-variable">RGUI</span>.<span class="cm-property">SSHKeys</span> <span class="cm-operator">=</span> <span class="cm-variable">RGUI</span>.<span class="cm-property">ListView</span>.<span class="cm-property">extend</span>({
+    <span class="cm-property">name</span>: <span class="cm-string">&#39;sshKeys&#39;</span>,
+    <span class="cm-property">template</span>: <span class="cm-string">&#39;&lt;div class=&quot;m-sshKeys {class}&quot; z-dis={disabled} r-hide={!visible}&gt;{#inc this.$body}&lt;/div&gt;&#39;</span>,
+    <span class="cm-property">config</span>() {
+        <span class="cm-keyword">this</span>.<span class="cm-property">data</span> <span class="cm-operator">=</span> <span class="cm-variable">Object</span>.<span class="cm-property">assign</span>({
+            <span class="cm-property">multiple</span>: <span class="cm-atom">true</span>
+        }, <span class="cm-keyword">this</span>.<span class="cm-property">data</span>);
+        <span class="cm-keyword">this</span>.<span class="cm-property">supr</span>();
+    }
+});
+<span class="cm-variable">RGUI</span>.<span class="cm-property">SSHKey</span> <span class="cm-operator">=</span> <span class="cm-variable">RGUI</span>.<span class="cm-property">Item</span>.<span class="cm-property">extend</span>({
+    <span class="cm-property">name</span>: <span class="cm-string">&#39;sshKey&#39;</span>,
+    <span class="cm-property">template</span>: <span class="cm-string-2">`&lt;div class=&quot;u-sshKey {class}&quot; z-sel={selected} z-dis={disabled} title={title} r-hide={!visible} on-click={this.select()}&gt;</span>
+        <span class="cm-string-2">&lt;span&gt;{#inc this.$body}&lt;/span&gt;&lt;i class=&quot;u-icon u-icon-check&quot;&gt;&lt;/i&gt;</span>
+    <span class="cm-string-2">&lt;/div&gt;`</span>
+});
+
+<span class="cm-keyword">let</span> <span class="cm-variable">component</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">RGUI</span>.<span class="cm-property">Component</span>({
+    <span class="cm-property">template</span>: <span class="cm-variable">template</span>,
+    <span class="cm-property">data</span>: {
+        <span class="cm-property">sshKeys</span>: [
+            <span class="cm-string">&#39;9ed236f8de294811a657acc4b8e92fd7&#39;</span>,
+            <span class="cm-string">&#39;0948a43c04b045b8ad63bc323ef06cb0&#39;</span>,
+            <span class="cm-string">&#39;a5c814940c9b4d8ab661831b391f9dca&#39;</span>,
+            <span class="cm-string">&#39;e2966c5c6347489ca16a0bf5659e2dcd&#39;</span>,
+        ]
+    }
+});
+</code></pre>
+<h4 id="-">选择密钥 - 升级版</h4>
+<div class="m-example"></div>
+
+<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">sshKeys</span><span class="cm-tagcm-bracket">&gt;</span>
+    {#list sshKeys as sshKey}
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">sshKey</span> <span class="cm-attribute">title</span>=<span class="cm-attribute">{sshKey.name}</span> <span class="cm-attribute">selected</span>=<span class="cm-attribute">{sshKey.selected}</span> <span class="cm-attribute">disabled</span>=<span class="cm-attribute">{!sshKey.selected</span> <span class="cm-attribute">&amp;&amp;</span> <span class="cm-attribute">!canSelect}</span><span class="cm-tagcm-bracketcm-error">&gt;</span>{sshKey.name}<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">sshKey</span><span class="cm-tagcm-bracket">&gt;</span>
+    {/list}
+<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">sshKeys</span><span class="cm-tagcm-bracket">&gt;</span>
+</code></pre>
+<pre class="lang-javascript"><code><span class="cm-keyword">let</span> <span class="cm-variable">component</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">RGUI</span>.<span class="cm-property">Component</span>({
+    <span class="cm-property">template</span>: <span class="cm-variable">template</span>,
+    <span class="cm-property">data</span>: {
+        <span class="cm-property">sshKeys</span>: [
+            {<span class="cm-property">name</span>: <span class="cm-string">&#39;9ed236f8de294811a657acc4b8e92fd7&#39;</span>},
+            {<span class="cm-property">name</span>: <span class="cm-string">&#39;0948a43c04b045b8ad63bc323ef06cb0&#39;</span>},
+            {<span class="cm-property">name</span>: <span class="cm-string">&#39;a5c814940c9b4d8ab661831b391f9dca&#39;</span>},
+            {<span class="cm-property">name</span>: <span class="cm-string">&#39;e2966c5c6347489ca16a0bf5659e2dcd&#39;</span>},
+            {<span class="cm-property">name</span>: <span class="cm-string">&#39;f4f53b4c17d84b6eaf63429ee2194b2c&#39;</span>},
+            {<span class="cm-property">name</span>: <span class="cm-string">&#39;combperftest&#39;</span>},
+            {<span class="cm-property">name</span>: <span class="cm-string">&#39;d0175bcd124d44d58fdc5111145a5748&#39;</span>},
+            {<span class="cm-property">name</span>: <span class="cm-string">&#39;key0test&#39;</span>},
+            {<span class="cm-property">name</span>: <span class="cm-string">&#39;rtetet&#39;</span>},
+            {<span class="cm-property">name</span>: <span class="cm-string">&#39;63bd3ac481354ba1aadec03acc386566&#39;</span>},
+            {<span class="cm-property">name</span>: <span class="cm-string">&#39;da19880cd576449881f9ee951e12c4f2&#39;</span>},
+        ]
+    },
+    <span class="cm-variable">computed</span>: {
+        <span class="cm-variable">canSelect</span>() {
+            <span class="cm-keyword">return</span> <span class="cm-keyword">this</span>.<span class="cm-variable">data</span>.<span class="cm-variable">sshKeys</span>.<span class="cm-variable">filter</span>((<span class="cm-variable">sshKey</span>) <span class="cm-operator">=&gt;</span> <span class="cm-variable">sshKey</span>.<span class="cm-variable">selected</span>).<span class="cm-variable">length</span> <span class="cm-operator">&lt;</span> <span class="cm-number">5</span>;
+        }
+    }
+});
+</code></pre>
+
+    </article>
+</div>
+</div></div><div class="g-ft">
+    <footer class="m-footer">
+        <p><a href="http://regular-ui.github.io/" class="footer_logo"><img src="http://regular-ui.github.io/img/logo-v2.0-bg-48.png" /></p>
+        <p>
+            <a href="https://github.com/regular-ui/regular-ui" target="_blank">GitHub</a> |
+            <a href="https://github.com/regular-ui/regular-ui/issues" target="_blank">Issues</a> |
+            <a href="https://github.com/regular-ui/regular-ui/releases" target="_blank">ChangeLog</a> |
+            <a href="https://github.com/regular-ui/regular-ui/blob/master/CONTRIBUTING.md" target="_blank">Contributing</a>
+        </p>
+        <p>Licensed under <a href="https://github.com/regular-ui/regular-ui/blob/master/LICENSE" target="_blank">MIT license</a>.</p>
+    </footer>
+</div>
+<script src="http://regular-ui.github.io/vendor/regular.min.js"></script>
+<script src="../js/index.js"></script>
+<script>
+var $$ = function(selector){return document.querySelectorAll(selector)};
+</script>
+<script>
+'use strict';
+
+var index = 0;
+(function (index) {
+    var template = '<pills>\n    <pill>1GB</pill>\n    <pill>2GB</pill>\n    <pill>4GB</pill>\n    <pill disabled>8GB</pill>\n    <pill disabled>16GB</pill>\n</pills>\n<p></p>\n<pills>\n    <pill selected>带宽</pill>\n    <pill>流量</pill>\n</pills>';
+    RGUI.Pills = RGUI.ListView.extend({
+        name: 'pills',
+        template: '<ul class="m-pills {class}" z-dis={disabled} r-hide={!visible}>{#inc this.$body}</ul>'
+    });
+    RGUI.Pill = RGUI.Item.extend({ name: 'pill' });
+
+    var component = new RGUI.Component({
+        template: template
+    });
+    component.$inject($$(".m-example")[index]);
+})(index++);
+(function (index) {
+    var template = '<repoCards>\n    {#list repos as repo}\n    <repoCard value={repo} />\n    {/list}\n</repoCards>';
+    RGUI.RepoCards = RGUI.ListView.extend({
+        name: 'repoCards',
+        template: '<div class="m-repoCards {class}" z-dis={disabled} r-hide={!visible}>{#inc this.$body}</div>'
+    });
+    RGUI.RepoCard = RGUI.Item.extend({
+        name: 'repoCard',
+        template: '<div class="u-repoCard {class}" z-sel={selected} z-dis={disabled} title={title} r-hide={!visible} on-click={this.select()}>\n        <div class="repoCard_info">\n            <div class="repoCard_logo"><i class="u-icon u-icon-html5"></i></div>\n            <div class="repoCard_name">{value.name}</div>\n        </div>\n        <div class="repoCard_version">{value.version}</div>\n    </div>'
+    });
+
+    var component = new RGUI.Component({
+        template: template,
+        data: {
+            repos: [{ name: 'centos', version: '6.5' }, { name: 'ubuntu', version: '14.04' }, { name: 'LAMP', version: 'latest' }, { name: 'mysql', version: '5.6' }, { name: 'redis', version: '2.8.4' }]
+        }
+    });
+    component.$inject($$(".m-example")[index]);
+})(index++);
+(function (index) {
+    var template = '<repoCards class="m-repoCards-lg">\n    <div class="repoCards_tt">我的镜像<a class="f-fr" on-click={showAll = !showAll}>{showAll ? \'部分显示\' : \'全部显示(9)\'}</a></div>\n    {#list myRepos as repo}\n    <repoCard value={repo} visible={repo_index < 5 || showAll} />\n    {/list}\n    <div class="repoCards_tt">官方镜像</div>\n    {#list repos as repo}\n    <repoCard value={repo} />\n    {/list}\n</repoCards>';
+    var component = new RGUI.Component({
+        template: template,
+        data: {
+            showAll: false,
+            myRepos: [{ name: '106807_test01', version: '3b3c06f7_20160419144110' }, { name: '67572_testhttps', version: 'dd1c30a4_20160203133928' }, { name: '66901_nnnn', version: '3b3c06f7_20160409125741' }, { name: '66910_python', version: '350a95e3_20160316154903' }, { name: '66911_tomcat', version: '290000b5_20160331204310' }, { name: '66908_php', version: '290000b5_20160331204144' }, { name: '87320_boot', version: '350a95e3_20160316154903' }, { name: '66451_nodejs', version: '3b3c06f7_20160419144110' }, { name: '64259_test', version: 'dd1c30a4_20160203133928' }],
+            repos: [{ name: 'centos', version: '6.5' }, { name: 'ubuntu', version: '14.04' }, { name: 'LAMP', version: 'latest' }, { name: 'mysql', version: '5.6' }, { name: 'redis', version: '2.8.4' }]
+        }
+    });
+    component.$inject($$(".m-example")[index]);
+})(index++);
+(function (index) {
+    var template = '<sshKeys>\n    {#list sshKeys as sshKey}\n    <sshKey title={sshKey}>{sshKey}</sshKey>\n    {/list}\n</sshKeys>';
+    RGUI.SSHKeys = RGUI.ListView.extend({
+        name: 'sshKeys',
+        template: '<div class="m-sshKeys {class}" z-dis={disabled} r-hide={!visible}>{#inc this.$body}</div>',
+        config: function config() {
+            this.data = Object.assign({
+                multiple: true
+            }, this.data);
+            this.supr();
+        }
+    });
+    RGUI.SSHKey = RGUI.Item.extend({
+        name: 'sshKey',
+        template: '<div class="u-sshKey {class}" z-sel={selected} z-dis={disabled} title={title} r-hide={!visible} on-click={this.select()}>\n        <span>{#inc this.$body}</span><i class="u-icon u-icon-check"></i>\n    </div>'
+    });
+
+    var component = new RGUI.Component({
+        template: template,
+        data: {
+            sshKeys: ['9ed236f8de294811a657acc4b8e92fd7', '0948a43c04b045b8ad63bc323ef06cb0', 'a5c814940c9b4d8ab661831b391f9dca', 'e2966c5c6347489ca16a0bf5659e2dcd']
+        }
+    });
+    component.$inject($$(".m-example")[index]);
+})(index++);
+(function (index) {
+    var template = '<sshKeys>\n    {#list sshKeys as sshKey}\n    <sshKey title={sshKey.name} selected={sshKey.selected} disabled={!sshKey.selected && !canSelect}>{sshKey.name}</sshKey>\n    {/list}\n</sshKeys>';
+    var component = new RGUI.Component({
+        template: template,
+        data: {
+            sshKeys: [{ name: '9ed236f8de294811a657acc4b8e92fd7' }, { name: '0948a43c04b045b8ad63bc323ef06cb0' }, { name: 'a5c814940c9b4d8ab661831b391f9dca' }, { name: 'e2966c5c6347489ca16a0bf5659e2dcd' }, { name: 'f4f53b4c17d84b6eaf63429ee2194b2c' }, { name: 'combperftest' }, { name: 'd0175bcd124d44d58fdc5111145a5748' }, { name: 'key0test' }, { name: 'rtetet' }, { name: '63bd3ac481354ba1aadec03acc386566' }, { name: 'da19880cd576449881f9ee951e12c4f2' }]
+        },
+        computed: {
+            canSelect: function canSelect() {
+                return this.data.sshKeys.filter(function (sshKey) {
+                    return sshKey.selected;
+                }).length < 5;
+            }
+        }
+    });
+    component.$inject($$(".m-example")[index]);
+})(index++);
+</script>
+</body>
+</html>
