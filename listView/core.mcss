@@ -19,6 +19,10 @@
         cursor: not-allowed;
         background: none;
     }
+
+    > li.z-divider {
+        cursor: default;
+    }
 }
 
 /* Disabled */

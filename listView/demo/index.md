@@ -34,24 +34,31 @@
 </div>
 ```
 
-#### 禁用某一项，禁用组件
+#### 只读，禁用，禁用某一项
 
 <div class="m-example"></div>
 
 ```xml
 <div class="g-row">
-    <div class="g-col g-col-6">
-        <listView>
+    <div class="g-col g-col-4">
+        <listView readonly>
             <item>选项1</item>
             <item>选项2</item>
-            <item disabled>选项3（禁用）</item>
+            <item selected>选项3</item>
         </listView>
     </div>
-    <div class="g-col g-col-6">
+    <div class="g-col g-col-4">
         <listView disabled>
             <item>选项1</item>
             <item>选项2</item>
             <item>选项3</item>
+        </listView>
+    </div>
+    <div class="g-col g-col-4">
+        <listView>
+            <item>选项1</item>
+            <item>选项2</item>
+            <item disabled>选项3（禁用）</item>
         </listView>
     </div>
 </div>
@@ -101,7 +108,7 @@
 ```
 
 ```javascript
-var component = new RGUI.Component({
+let component = new RGUI.Component({
     template: template,
     data: {
         list: [

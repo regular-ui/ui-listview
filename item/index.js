@@ -29,10 +29,10 @@ import template from './index.rgl';
         }, this.data);
         this.supr();
 
-        // 没有$outer就直接报错吧
+        // 没有$outer就直接报错
         this.$outer.data._list.push(this);
-        // 选择第一个selected为true的item
-        if(!this.$outer.data._selected && this.data.selected)
+        // 初始化时选择selected为true的item
+        if(this.data.selected)
             this.$outer.data._selected = this;
     },
     /**
