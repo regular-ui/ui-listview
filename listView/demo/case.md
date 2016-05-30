@@ -1,8 +1,33 @@
 ### 案例
 
-#### Pills
+#### 内存选择
 
 <div class="m-example"></div>
+
+```xml
+<pills>
+    <pill>1GB</pill>
+    <pill>2GB</pill>
+    <pill>4GB</pill>
+    <pill disabled>8GB</pill>
+    <pill disabled>16GB</pill>
+</pills>
+```
+
+```javascript
+RGUI.Pills = RGUI.ListView.extend({
+    name: 'pills',
+    template: '<ul class="m-pills {class}" z-dis={disabled} r-hide={!visible}>{#inc this.$body}</ul>'
+});
+
+RGUI.Pill = RGUI.Item.extend({
+    name: 'pill'
+});
+
+let component = new RGUI.Component({
+    template: template
+});
+```
 
 ```css
 .m-pills {list-style: none; margin: 0; padding: 0; font-size: 0;}
@@ -18,36 +43,95 @@
 .m-pills>li.z-dis {cursor: not-allowed; background-color: #f5f5f5; color: #ccc; border-color: #ccd5db;}
 ```
 
+#### 带宽/流量切换
+
+<div class="m-example"></div>
+
 ```xml
-<pills>
-    <pill>1GB</pill>
-    <pill>2GB</pill>
-    <pill>4GB</pill>
-    <pill disabled>8GB</pill>
-    <pill disabled>16GB</pill>
-</pills>
-<p></p>
 <pills>
     <pill selected>带宽</pill>
     <pill>流量</pill>
 </pills>
 ```
 
-```javascript
-RGUI.Pills = RGUI.ListView.extend({
-    name: 'pills',
-    template: '<ul class="m-pills {class}" z-dis={disabled} r-hide={!visible}>{#inc this.$body}</ul>',
-});
-RGUI.Pill = RGUI.Item.extend({name: 'pill'});
+#### 内存选择 - 升级版
 
+<div class="m-example"></div>
+
+```xml
+<pills value={memoryPrice}>
+    {#list flavors as flavor}
+    <pill value={flavor.price} disabled={flavor.memory >= 8}>{flavor.memory}GB</pill>
+    {/list}
+</pills>
+```
+
+```javascript
 let component = new RGUI.Component({
-    template: template
+    template: template,
+    data: {
+        flavors: []
+    },
+    init() {
+        setTimeout(() => {
+            this.data.flavors = [
+                {memory: 1, price: 0.23},
+                {memory: 2, price: 0.52},
+                {memory: 4, price: 0.93},
+                {memory: 8, price: 1.86},
+                {memory: 16, price: 3.60},
+            ];
+            this.data.memoryPrice = this.data.flavors[0].price;
+            this.$update();
+        }, 500);
+    }
 });
 ```
 
-#### 选择镜像
+#### 镜像选择
 
 <div class="m-example"></div>
+
+```xml
+<repoCards>
+    {#list repos as repo}
+    <repoCard value={repo} />
+    {/list}
+</repoCards>
+```
+
+```javascript
+RGUI.RepoCards = RGUI.ListView.extend({
+    name: 'repoCards',
+    template: '<div class="m-repoCards {class}" z-dis={disabled} r-hide={!visible}>{#inc this.$body}</div>'
+});
+
+RGUI.RepoCard = RGUI.Item.extend({
+    name: 'repoCard',
+    template: `
+        <div class="u-repoCard {class}" z-sel={selected} z-dis={disabled} z-divider={divider} title={title} r-hide={!visible} on-click={this.select()}>
+            <div class="repoCard_info">
+                <div class="repoCard_logo"><i class="u-icon u-icon-html5"></i></div>
+                <div class="repoCard_name">{value.name}</div>
+            </div>
+            <div class="repoCard_version">{value.version}</div>
+        </div>
+    ` 
+});
+
+let component = new RGUI.Component({
+    template: template,
+    data: {
+        repos: [
+            {name: 'centos', version: '6.5'},
+            {name: 'ubuntu', version: '14.04'},
+            {name: 'LAMP', version: 'latest'},
+            {name: 'mysql', version: '5.6'},
+            {name: 'redis', version: '2.8.4'},
+        ]
+    }
+});
+```
 
 ```css
 .m-repoCards {font-size: 0;}
@@ -73,56 +157,13 @@ let component = new RGUI.Component({
 .u-repoCard.z-sel .repoCard_version {color: #fff; background-color: #67aaf5;}
 ```
 
-```xml
-<repoCards>
-    {#list repos as repo}
-    <repoCard value={repo} />
-    {/list}
-</repoCards>
-```
-
-```javascript
-RGUI.RepoCards = RGUI.ListView.extend({
-    name: 'repoCards',
-    template: '<div class="m-repoCards {class}" z-dis={disabled} r-hide={!visible}>{#inc this.$body}</div>',
-});
-RGUI.RepoCard = RGUI.Item.extend({
-    name: 'repoCard',
-    template: `<div class="u-repoCard {class}" z-sel={selected} z-dis={disabled} title={title} r-hide={!visible} on-click={this.select()}>
-        <div class="repoCard_info">
-            <div class="repoCard_logo"><i class="u-icon u-icon-html5"></i></div>
-            <div class="repoCard_name">{value.name}</div>
-        </div>
-        <div class="repoCard_version">{value.version}</div>
-    </div>`
-});
-
-let component = new RGUI.Component({
-    template: template,
-    data: {
-        repos: [
-            {name: 'centos', version: '6.5'},
-            {name: 'ubuntu', version: '14.04'},
-            {name: 'LAMP', version: 'latest'},
-            {name: 'mysql', version: '5.6'},
-            {name: 'redis', version: '2.8.4'},
-        ]
-    }
-});
-```
-
-#### 选择镜像 - 升级版
+#### 镜像选择 - 升级版
 
 <div class="m-example"></div>
 
-```css
-.m-repoCards-lg {width: 590px; padding: 0 20px; border: 1px solid #e1e8ed; border-radius: 1px;}
-.m-repoCards .repoCards_tt {font-size: 14px; line-height: 20px; margin: 8px 8px 0;}
-```
-
 ```xml
-<repoCards class="m-repoCards-lg">
-    <div class="repoCards_tt">我的镜像<a class="f-fr" on-click={showAll = !showAll}>{showAll ? '部分显示' : '全部显示(9)'}</a></div>
+<repoCards class="m-repoCards-complex">
+    <div class="repoCards_tt">我的镜像 <a class="f-fr" on-click={showAll = !showAll}>{showAll ? '部分显示' : '全部显示(' + myRepos.length + ')'}</a></div>
     {#list myRepos as repo}
     <repoCard value={repo} visible={repo_index < 5 || showAll} />
     {/list}
@@ -160,28 +201,14 @@ let component = new RGUI.Component({
 });
 ```
 
+```css
+.m-repoCards-complex {width: 590px; padding: 0 20px; border: 1px solid #e1e8ed; border-radius: 1px;}
+.m-repoCards .repoCards_tt {font-size: 14px; line-height: 20px; margin: 8px 8px 0;}
+```
+
 #### 选择密钥
 
 <div class="m-example"></div>
-
-```css
-.m-sshKeys {font-size: 0;}
-.u-sshKey {
-    display: inline-block; position: relative; cursor: pointer; 
-    margin: 5px 0; margin-right: 20px; padding: 0 10px; width: 128px; height: 35px; line-height: 35px; font-size: 14px; 
-    background: #f7f8fa; color: #333; border: 1px solid #d7dae0; border-radius: 2px;
-}
-.u-sshKey>span {display: block; overflow: hidden; word-wrap: normal; white-space: nowrap; text-overflow: ellipsis;}
-.u-sshKey>i {
-    display: none; position: absolute; z-index: 2; right: -8px; bottom: -6px;
-    width: 18px; height: 18px; line-height: 18px; font-size: 10px;
-    background: #67aaf5; color: white; border-radius: 100%;
-}
-.u-sshKey:hover {background: #edf1f3; border: 1px solid #d7dae0;}
-.u-sshKey.z-sel {background: #f7fcfe; border-color: #67aaf5; box-shadow: inset 0 0 0 1px #67aaf5;}
-.u-sshKey.z-sel>i {display: inline-block;}
-.u-sshKey.z-dis {cursor: not-allowed; background: #f7f8fa; color: #ccc;}
-```
 
 ```xml
 <sshKeys>
@@ -202,11 +229,15 @@ RGUI.SSHKeys = RGUI.ListView.extend({
         this.supr();
     }
 });
+
 RGUI.SSHKey = RGUI.Item.extend({
     name: 'sshKey',
-    template: `<div class="u-sshKey {class}" z-sel={selected} z-dis={disabled} title={title} r-hide={!visible} on-click={this.select()}>
-        <span>{#inc this.$body}</span><i class="u-icon u-icon-check"></i>
-    </div>`
+    template: `
+        <div class="u-sshKey {class}" z-sel={selected} z-dis={disabled} z-divider={divider} title={title} r-hide={!visible} on-click={this.select()}>
+            <span>{#inc this.$body}</span>
+            <i class="u-icon u-icon-check"></i>
+        </div>
+    ` 
 });
 
 let component = new RGUI.Component({
@@ -222,11 +253,31 @@ let component = new RGUI.Component({
 });
 ```
 
+```css
+.m-sshKeys {font-size: 0;}
+.u-sshKey {
+    display: inline-block; position: relative; cursor: pointer; 
+    margin: 5px 0; margin-right: 20px; padding: 0 10px; width: 128px; height: 35px; line-height: 35px; font-size: 14px; 
+    background: #f7f8fa; color: #333; border: 1px solid #d7dae0; border-radius: 2px;
+}
+.u-sshKey>span {display: block; overflow: hidden; word-wrap: normal; white-space: nowrap; text-overflow: ellipsis;}
+.u-sshKey>i {
+    display: none; position: absolute; z-index: 2; right: -8px; bottom: -6px;
+    width: 18px; height: 18px; line-height: 18px; font-size: 10px;
+    background: #67aaf5; color: white; border-radius: 100%;
+}
+.u-sshKey:hover {background: #edf1f3; border: 1px solid #d7dae0;}
+.u-sshKey.z-sel {background: #f7fcfe; border-color: #67aaf5; box-shadow: inset 0 0 0 1px #67aaf5;}
+.u-sshKey.z-sel>i {display: inline-block;}
+.u-sshKey.z-dis {cursor: not-allowed; background: #f7f8fa; color: #ccc;}
+```
+
 #### 选择密钥 - 升级版
 
 <div class="m-example"></div>
 
 ```xml
+{selectedCount}
 <sshKeys>
     {#list sshKeys as sshKey}
     <sshKey title={sshKey.name} selected={sshKey.selected} disabled={!sshKey.selected && !canSelect}>{sshKey.name}</sshKey>
