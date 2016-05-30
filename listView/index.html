@@ -190,35 +190,35 @@ var index = 0;
     var component = new RGUI.Component({
         template: template
     });
-    component.$inject($$(".m-example")[index]);
+    component && component.$inject($$(".m-example")[index]);
 })(index++);
 (function (index) {
     var template = "<div class=\"g-row\">\n    <div class=\"g-col g-col-6\">\n        <listView value=2>\n            <item value=1>选项1</item>\n            <item value=2>选项2</item>\n            <item value=3>选项3</item>\n        </listView>\n    </div>\n    <div class=\"g-col g-col-6\">\n        <listView>\n            <item value=1>选项1</item>\n            <item value=2>选项2</item>\n            <item value=3 selected>选项3</item>\n        </listView>\n    </div>\n</div>";
     var component = new RGUI.Component({
         template: template
     });
-    component.$inject($$(".m-example")[index]);
+    component && component.$inject($$(".m-example")[index]);
 })(index++);
 (function (index) {
     var template = "<div class=\"g-row\">\n    <div class=\"g-col g-col-4\">\n        <listView readonly>\n            <item>选项1</item>\n            <item>选项2</item>\n            <item selected>选项3</item>\n        </listView>\n    </div>\n    <div class=\"g-col g-col-4\">\n        <listView disabled>\n            <item>选项1</item>\n            <item>选项2</item>\n            <item>选项3</item>\n        </listView>\n    </div>\n    <div class=\"g-col g-col-4\">\n        <listView>\n            <item>选项1</item>\n            <item>选项2</item>\n            <item disabled>选项3（禁用）</item>\n        </listView>\n    </div>\n</div>";
     var component = new RGUI.Component({
         template: template
     });
-    component.$inject($$(".m-example")[index]);
+    component && component.$inject($$(".m-example")[index]);
 })(index++);
 (function (index) {
     var template = "<listView>\n    <item>选项1</item>\n    <item>选项2</item>\n    <item divider />\n    <item disabled>选项3（禁用）</item>\n</listView>";
     var component = new RGUI.Component({
         template: template
     });
-    component.$inject($$(".m-example")[index]);
+    component && component.$inject($$(".m-example")[index]);
 })(index++);
 (function (index) {
     var template = "<listView multiple>\n    <item>选项1</item>\n    <item selected>选项2</item>\n    <item>选项3</item>\n    <item disabled>选项4（禁用）</item>\n    <item selected>选项5</item>\n</listView>";
     var component = new RGUI.Component({
         template: template
     });
-    component.$inject($$(".m-example")[index]);
+    component && component.$inject($$(".m-example")[index]);
 })(index++);
 (function (index) {
     var template = "<listView>\n    {#list list as item}\n    <item>\n        <span class=\"number\">{item_index + 1}.</span>\n        <span class=\"title\">{item.course}</span>\n        <span class=\"hits f-fr\">{item.hits}</span>\n    </item>\n    {/list}\n</listView>";
@@ -228,21 +228,21 @@ var index = 0;
             list: [{ course: '精通Javascript开发', org: '前端Funs', hits: 42371 }, { course: 'Android深入浅出', org: 'Android学院', hits: 30645 }, { course: 'cocos2dx游戏开发教程', org: '鱼C课程', hits: 25112 }, { course: 'MySQL数据库', org: 'LAMP兄弟连', hits: 18089 }, { course: 'Arduino初级教程', org: '硬件社', hits: 16361 }]
         }
     });
-    component.$inject($$(".m-example")[index]);
+    component && component.$inject($$(".m-example")[index]);
 })(index++);
 (function (index) {
     var template = "<listView value={value}>\n    <item value=1>选项1</item>\n    <item value=2>选项2</item>\n    <item value=3 selected>选项3</item>\n</listView>\n当前选择值：{value + ''}";
     var component = new RGUI.Component({
         template: template
     });
-    component.$inject($$(".m-example")[index]);
+    component && component.$inject($$(".m-example")[index]);
 })(index++);
 (function (index) {
     var template = "<listView value={value}\n    on-select={console.log('on-select:', '$event:', $event)}\n    on-change={console.log('on-change:', '$event.value:', $event.value)}>\n    <item value=1>选项1</item>\n    <item value=2>选项2</item>\n    <item value=3 selected>选项3</item>\n</listView>";
     var component = new RGUI.Component({
         template: template
     });
-    component.$inject($$(".m-example")[index]);
+    component && component.$inject($$(".m-example")[index]);
 })(index++);
 </script>
 </body>

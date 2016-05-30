@@ -36,7 +36,7 @@
     <article class="m-article">
         <h2>列表视图<small> ListView</small></h2>
         <h3 id="-">案例</h3>
-<h4 id="pills">Pills</h4>
+<h4 id="-">内存选择</h4>
 <div class="m-example"><style>.m-pills {list-style: none; margin: 0; padding: 0; font-size: 0;}
 .m-pills>li {
     box-sizing: border-box; display: inline-block;
@@ -49,6 +49,27 @@
 .m-pills>li.z-sel {position: relative; background: #67aaf5; color: #fff;}
 .m-pills>li.z-dis {cursor: not-allowed; background-color: #f5f5f5; color: #ccc; border-color: #ccd5db;}</style></div>
 
+<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">pills</span><span class="cm-tagcm-bracket">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">pill</span><span class="cm-tagcm-bracket">&gt;</span>1GB<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">pill</span><span class="cm-tagcm-bracket">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">pill</span><span class="cm-tagcm-bracket">&gt;</span>2GB<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">pill</span><span class="cm-tagcm-bracket">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">pill</span><span class="cm-tagcm-bracket">&gt;</span>4GB<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">pill</span><span class="cm-tagcm-bracket">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">pill</span> <span class="cm-attribute">disabled</span><span class="cm-tagcm-bracketcm-error">&gt;</span>8GB<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">pill</span><span class="cm-tagcm-bracket">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">pill</span> <span class="cm-attribute">disabled</span><span class="cm-tagcm-bracketcm-error">&gt;</span>16GB<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">pill</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">pills</span><span class="cm-tagcm-bracket">&gt;</span>
+</code></pre>
+<pre class="lang-javascript"><code><span class="cm-variable">RGUI</span>.<span class="cm-property">Pills</span> <span class="cm-operator">=</span> <span class="cm-variable">RGUI</span>.<span class="cm-property">ListView</span>.<span class="cm-property">extend</span>({
+    <span class="cm-property">name</span>: <span class="cm-string">&#39;pills&#39;</span>,
+    <span class="cm-property">template</span>: <span class="cm-string">&#39;&lt;ul class=&quot;m-pills {class}&quot; z-dis={disabled} r-hide={!visible}&gt;{#inc this.$body}&lt;/ul&gt;&#39;</span>
+});
+
+<span class="cm-variable">RGUI</span>.<span class="cm-property">Pill</span> <span class="cm-operator">=</span> <span class="cm-variable">RGUI</span>.<span class="cm-property">Item</span>.<span class="cm-property">extend</span>({
+    <span class="cm-property">name</span>: <span class="cm-string">&#39;pill&#39;</span>
+});
+
+<span class="cm-keyword">let</span> <span class="cm-variable">component</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">RGUI</span>.<span class="cm-property">Component</span>({
+    <span class="cm-property">template</span>: <span class="cm-variable">template</span>
+});
+</code></pre>
 <pre class="lang-css"><code><span class="cm-qualifier">.m-pills</span> {<span class="cm-property">list-style</span>: <span class="cm-atom">none</span>; <span class="cm-property">margin</span>: <span class="cm-number">0</span>; <span class="cm-property">padding</span>: <span class="cm-number">0</span>; <span class="cm-property">font-size</span>: <span class="cm-number">0</span>;}
 <span class="cm-qualifier">.m-pills</span>&gt;<span class="cm-tag">li</span> {
     <span class="cm-property">box-sizing</span>: <span class="cm-atom">border-box</span>; <span class="cm-property">display</span>: <span class="cm-atom">inline-block</span>;
@@ -61,30 +82,44 @@
 <span class="cm-qualifier">.m-pills</span>&gt;<span class="cm-tag">li</span><span class="cm-qualifier">.z-sel</span> {<span class="cm-property">position</span>: <span class="cm-atom">relative</span>; <span class="cm-property">background</span>: <span class="cm-atom">#67aaf5</span>; <span class="cm-property">color</span>: <span class="cm-atom">#fff</span>;}
 <span class="cm-qualifier">.m-pills</span>&gt;<span class="cm-tag">li</span><span class="cm-qualifier">.z-dis</span> {<span class="cm-property">cursor</span>: <span class="cm-atom">not-allowed</span>; <span class="cm-property">background-color</span>: <span class="cm-atom">#f5f5f5</span>; <span class="cm-property">color</span>: <span class="cm-atom">#ccc</span>; <span class="cm-property">border-color</span>: <span class="cm-atom">#ccd5db</span>;}
 </code></pre>
+<h4 id="-">带宽/流量切换</h4>
+<div class="m-example"></div>
+
 <pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">pills</span><span class="cm-tagcm-bracket">&gt;</span>
-    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">pill</span><span class="cm-tagcm-bracket">&gt;</span>1GB<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">pill</span><span class="cm-tagcm-bracket">&gt;</span>
-    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">pill</span><span class="cm-tagcm-bracket">&gt;</span>2GB<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">pill</span><span class="cm-tagcm-bracket">&gt;</span>
-    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">pill</span><span class="cm-tagcm-bracket">&gt;</span>4GB<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">pill</span><span class="cm-tagcm-bracket">&gt;</span>
-    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">pill</span> <span class="cm-attribute">disabled</span><span class="cm-tagcm-bracketcm-error">&gt;</span>8GB<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">pill</span><span class="cm-tagcm-bracket">&gt;</span>
-    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">pill</span> <span class="cm-attribute">disabled</span><span class="cm-tagcm-bracketcm-error">&gt;</span>16GB<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">pill</span><span class="cm-tagcm-bracket">&gt;</span>
-<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">pills</span><span class="cm-tagcm-bracket">&gt;</span>
-<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">p</span><span class="cm-tagcm-bracket">&gt;</span><span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">p</span><span class="cm-tagcm-bracket">&gt;</span>
-<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">pills</span><span class="cm-tagcm-bracket">&gt;</span>
     <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">pill</span> <span class="cm-attribute">selected</span><span class="cm-tagcm-bracketcm-error">&gt;</span>带宽<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">pill</span><span class="cm-tagcm-bracket">&gt;</span>
     <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">pill</span><span class="cm-tagcm-bracket">&gt;</span>流量<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">pill</span><span class="cm-tagcm-bracket">&gt;</span>
 <span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">pills</span><span class="cm-tagcm-bracket">&gt;</span>
 </code></pre>
-<pre class="lang-javascript"><code><span class="cm-variable">RGUI</span>.<span class="cm-property">Pills</span> <span class="cm-operator">=</span> <span class="cm-variable">RGUI</span>.<span class="cm-property">ListView</span>.<span class="cm-property">extend</span>({
-    <span class="cm-property">name</span>: <span class="cm-string">&#39;pills&#39;</span>,
-    <span class="cm-property">template</span>: <span class="cm-string">&#39;&lt;ul class=&quot;m-pills {class}&quot; z-dis={disabled} r-hide={!visible}&gt;{#inc this.$body}&lt;/ul&gt;&#39;</span>,
-});
-<span class="cm-variable">RGUI</span>.<span class="cm-property">Pill</span> <span class="cm-operator">=</span> <span class="cm-variable">RGUI</span>.<span class="cm-property">Item</span>.<span class="cm-property">extend</span>({<span class="cm-property">name</span>: <span class="cm-string">&#39;pill&#39;</span>});
+<h4 id="-">内存选择 - 升级版</h4>
+<div class="m-example"></div>
 
-<span class="cm-keyword">let</span> <span class="cm-variable">component</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">RGUI</span>.<span class="cm-property">Component</span>({
-    <span class="cm-property">template</span>: <span class="cm-variable">template</span>
+<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">pills</span> <span class="cm-attribute">value</span>=<span class="cm-attribute">{memoryPrice}</span><span class="cm-tagcm-bracketcm-error">&gt;</span>
+    {#list flavors as flavor}
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">pill</span> <span class="cm-attribute">value</span>=<span class="cm-attribute">{flavor.price}</span> <span class="cm-attribute">disabled</span>=<span class="cm-attribute">{flavor.memory</span> <span class="cm-tagcm-bracketcm-error">&gt;</span>= 8}&gt;{flavor.memory}GB<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">pill</span><span class="cm-tagcm-bracket">&gt;</span>
+    {/list}
+<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">pills</span><span class="cm-tagcm-bracket">&gt;</span>
+</code></pre>
+<pre class="lang-javascript"><code><span class="cm-keyword">let</span> <span class="cm-variable">component</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">RGUI</span>.<span class="cm-property">Component</span>({
+    <span class="cm-property">template</span>: <span class="cm-variable">template</span>,
+    <span class="cm-property">data</span>: {
+        <span class="cm-property">flavors</span>: []
+    },
+    <span class="cm-property">init</span>() {
+        <span class="cm-variable">setTimeout</span>(() <span class="cm-operator">=&gt;</span> {
+            <span class="cm-keyword">this</span>.<span class="cm-variable">data</span>.<span class="cm-variable">flavors</span> <span class="cm-operator">=</span> [
+                {<span class="cm-variable">memory</span>: <span class="cm-number">1</span>, <span class="cm-variable">price</span>: <span class="cm-number">0.23</span>},
+                {<span class="cm-variable">memory</span>: <span class="cm-number">2</span>, <span class="cm-variable">price</span>: <span class="cm-number">0.52</span>},
+                {<span class="cm-variable">memory</span>: <span class="cm-number">4</span>, <span class="cm-variable">price</span>: <span class="cm-number">0.93</span>},
+                {<span class="cm-variable">memory</span>: <span class="cm-number">8</span>, <span class="cm-variable">price</span>: <span class="cm-number">1.86</span>},
+                {<span class="cm-variable">memory</span>: <span class="cm-number">16</span>, <span class="cm-variable">price</span>: <span class="cm-number">3.60</span>},
+            ];
+            <span class="cm-keyword">this</span>.<span class="cm-variable">data</span>.<span class="cm-variable">memoryPrice</span> <span class="cm-operator">=</span> <span class="cm-keyword">this</span>.<span class="cm-variable">data</span>.<span class="cm-variable">flavors</span>[<span class="cm-number">0</span>].<span class="cm-variable">price</span>;
+            <span class="cm-keyword">this</span>.<span class="cm-variable">$update</span>();
+        }, <span class="cm-numbercm-property">500</span>);
+    }
 });
 </code></pre>
-<h4 id="-">选择镜像</h4>
+<h4 id="-">镜像选择</h4>
 <div class="m-example"><style>.m-repoCards {font-size: 0;}
 .u-repoCard {
     position: relative; display: inline-block; cursor: pointer;
@@ -107,6 +142,43 @@
 .u-repoCard.z-sel .repoCard_info {border-color: #67aaf5;}
 .u-repoCard.z-sel .repoCard_version {color: #fff; background-color: #67aaf5;}</style></div>
 
+<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">repoCards</span><span class="cm-tagcm-bracket">&gt;</span>
+    {#list repos as repo}
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">repoCard</span> <span class="cm-attribute">value</span>=<span class="cm-attribute">{repo}</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span>
+    {/list}
+<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">repoCards</span><span class="cm-tagcm-bracket">&gt;</span>
+</code></pre>
+<pre class="lang-javascript"><code><span class="cm-variable">RGUI</span>.<span class="cm-property">RepoCards</span> <span class="cm-operator">=</span> <span class="cm-variable">RGUI</span>.<span class="cm-property">ListView</span>.<span class="cm-property">extend</span>({
+    <span class="cm-property">name</span>: <span class="cm-string">&#39;repoCards&#39;</span>,
+    <span class="cm-property">template</span>: <span class="cm-string">&#39;&lt;div class=&quot;m-repoCards {class}&quot; z-dis={disabled} r-hide={!visible}&gt;{#inc this.$body}&lt;/div&gt;&#39;</span>
+});
+
+<span class="cm-variable">RGUI</span>.<span class="cm-property">RepoCard</span> <span class="cm-operator">=</span> <span class="cm-variable">RGUI</span>.<span class="cm-property">Item</span>.<span class="cm-property">extend</span>({
+    <span class="cm-property">name</span>: <span class="cm-string">&#39;repoCard&#39;</span>,
+    <span class="cm-property">template</span>: <span class="cm-string-2">`</span>
+        <span class="cm-string-2">&lt;div class=&quot;u-repoCard {class}&quot; z-sel={selected} z-dis={disabled} z-divider={divider} title={title} r-hide={!visible} on-click={this.select()}&gt;</span>
+            <span class="cm-string-2">&lt;div class=&quot;repoCard_info&quot;&gt;</span>
+                <span class="cm-string-2">&lt;div class=&quot;repoCard_logo&quot;&gt;&lt;i class=&quot;u-icon u-icon-html5&quot;&gt;&lt;/i&gt;&lt;/div&gt;</span>
+                <span class="cm-string-2">&lt;div class=&quot;repoCard_name&quot;&gt;{value.name}&lt;/div&gt;</span>
+            <span class="cm-string-2">&lt;/div&gt;</span>
+            <span class="cm-string-2">&lt;div class=&quot;repoCard_version&quot;&gt;{value.version}&lt;/div&gt;</span>
+        <span class="cm-string-2">&lt;/div&gt;</span>
+    <span class="cm-string-2">`</span> 
+});
+
+<span class="cm-keyword">let</span> <span class="cm-variable">component</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">RGUI</span>.<span class="cm-property">Component</span>({
+    <span class="cm-property">template</span>: <span class="cm-variable">template</span>,
+    <span class="cm-property">data</span>: {
+        <span class="cm-property">repos</span>: [
+            {<span class="cm-property">name</span>: <span class="cm-string">&#39;centos&#39;</span>, <span class="cm-property">version</span>: <span class="cm-string">&#39;6.5&#39;</span>},
+            {<span class="cm-property">name</span>: <span class="cm-string">&#39;ubuntu&#39;</span>, <span class="cm-property">version</span>: <span class="cm-string">&#39;14.04&#39;</span>},
+            {<span class="cm-property">name</span>: <span class="cm-string">&#39;LAMP&#39;</span>, <span class="cm-property">version</span>: <span class="cm-string">&#39;latest&#39;</span>},
+            {<span class="cm-property">name</span>: <span class="cm-string">&#39;mysql&#39;</span>, <span class="cm-property">version</span>: <span class="cm-string">&#39;5.6&#39;</span>},
+            {<span class="cm-property">name</span>: <span class="cm-string">&#39;redis&#39;</span>, <span class="cm-property">version</span>: <span class="cm-string">&#39;2.8.4&#39;</span>},
+        ]
+    }
+});
+</code></pre>
 <pre class="lang-css"><code><span class="cm-qualifier">.m-repoCards</span> {<span class="cm-property">font-size</span>: <span class="cm-number">0</span>;}
 <span class="cm-qualifier">.u-repoCard</span> {
     <span class="cm-property">position</span>: <span class="cm-atom">relative</span>; <span class="cm-property">display</span>: <span class="cm-atom">inline-block</span>; <span class="cm-property">cursor</span>: <span class="cm-atom">pointer</span>;
@@ -129,49 +201,12 @@
 <span class="cm-qualifier">.u-repoCard</span><span class="cm-qualifier">.z-sel</span> <span class="cm-qualifier">.repoCard_info</span> {<span class="cm-property">border-color</span>: <span class="cm-atom">#67aaf5</span>;}
 <span class="cm-qualifier">.u-repoCard</span><span class="cm-qualifier">.z-sel</span> <span class="cm-qualifier">.repoCard_version</span> {<span class="cm-property">color</span>: <span class="cm-atom">#fff</span>; <span class="cm-property">background-color</span>: <span class="cm-atom">#67aaf5</span>;}
 </code></pre>
-<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">repoCards</span><span class="cm-tagcm-bracket">&gt;</span>
-    {#list repos as repo}
-    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">repoCard</span> <span class="cm-attribute">value</span>=<span class="cm-attribute">{repo}</span> <span class="cm-tagcm-bracketcm-error">/&gt;</span>
-    {/list}
-<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">repoCards</span><span class="cm-tagcm-bracket">&gt;</span>
-</code></pre>
-<pre class="lang-javascript"><code><span class="cm-variable">RGUI</span>.<span class="cm-property">RepoCards</span> <span class="cm-operator">=</span> <span class="cm-variable">RGUI</span>.<span class="cm-property">ListView</span>.<span class="cm-property">extend</span>({
-    <span class="cm-property">name</span>: <span class="cm-string">&#39;repoCards&#39;</span>,
-    <span class="cm-property">template</span>: <span class="cm-string">&#39;&lt;div class=&quot;m-repoCards {class}&quot; z-dis={disabled} r-hide={!visible}&gt;{#inc this.$body}&lt;/div&gt;&#39;</span>,
-});
-<span class="cm-variable">RGUI</span>.<span class="cm-property">RepoCard</span> <span class="cm-operator">=</span> <span class="cm-variable">RGUI</span>.<span class="cm-property">Item</span>.<span class="cm-property">extend</span>({
-    <span class="cm-property">name</span>: <span class="cm-string">&#39;repoCard&#39;</span>,
-    <span class="cm-property">template</span>: <span class="cm-string-2">`&lt;div class=&quot;u-repoCard {class}&quot; z-sel={selected} z-dis={disabled} title={title} r-hide={!visible} on-click={this.select()}&gt;</span>
-        <span class="cm-string-2">&lt;div class=&quot;repoCard_info&quot;&gt;</span>
-            <span class="cm-string-2">&lt;div class=&quot;repoCard_logo&quot;&gt;&lt;i class=&quot;u-icon u-icon-html5&quot;&gt;&lt;/i&gt;&lt;/div&gt;</span>
-            <span class="cm-string-2">&lt;div class=&quot;repoCard_name&quot;&gt;{value.name}&lt;/div&gt;</span>
-        <span class="cm-string-2">&lt;/div&gt;</span>
-        <span class="cm-string-2">&lt;div class=&quot;repoCard_version&quot;&gt;{value.version}&lt;/div&gt;</span>
-    <span class="cm-string-2">&lt;/div&gt;`</span>
-});
-
-<span class="cm-keyword">let</span> <span class="cm-variable">component</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">RGUI</span>.<span class="cm-property">Component</span>({
-    <span class="cm-property">template</span>: <span class="cm-variable">template</span>,
-    <span class="cm-property">data</span>: {
-        <span class="cm-property">repos</span>: [
-            {<span class="cm-property">name</span>: <span class="cm-string">&#39;centos&#39;</span>, <span class="cm-property">version</span>: <span class="cm-string">&#39;6.5&#39;</span>},
-            {<span class="cm-property">name</span>: <span class="cm-string">&#39;ubuntu&#39;</span>, <span class="cm-property">version</span>: <span class="cm-string">&#39;14.04&#39;</span>},
-            {<span class="cm-property">name</span>: <span class="cm-string">&#39;LAMP&#39;</span>, <span class="cm-property">version</span>: <span class="cm-string">&#39;latest&#39;</span>},
-            {<span class="cm-property">name</span>: <span class="cm-string">&#39;mysql&#39;</span>, <span class="cm-property">version</span>: <span class="cm-string">&#39;5.6&#39;</span>},
-            {<span class="cm-property">name</span>: <span class="cm-string">&#39;redis&#39;</span>, <span class="cm-property">version</span>: <span class="cm-string">&#39;2.8.4&#39;</span>},
-        ]
-    }
-});
-</code></pre>
-<h4 id="-">选择镜像 - 升级版</h4>
-<div class="m-example"><style>.m-repoCards-lg {width: 590px; padding: 0 20px; border: 1px solid #e1e8ed; border-radius: 1px;}
+<h4 id="-">镜像选择 - 升级版</h4>
+<div class="m-example"><style>.m-repoCards-complex {width: 590px; padding: 0 20px; border: 1px solid #e1e8ed; border-radius: 1px;}
 .m-repoCards .repoCards_tt {font-size: 14px; line-height: 20px; margin: 8px 8px 0;}</style></div>
 
-<pre class="lang-css"><code><span class="cm-qualifier">.m-repoCards-lg</span> {<span class="cm-property">width</span>: <span class="cm-number">590px</span>; <span class="cm-property">padding</span>: <span class="cm-number">0</span> <span class="cm-number">20px</span>; <span class="cm-property">border</span>: <span class="cm-number">1px</span> <span class="cm-atom">solid</span> <span class="cm-atom">#e1e8ed</span>; <span class="cm-property">border-radius</span>: <span class="cm-number">1px</span>;}
-<span class="cm-qualifier">.m-repoCards</span> <span class="cm-qualifier">.repoCards_tt</span> {<span class="cm-property">font-size</span>: <span class="cm-number">14px</span>; <span class="cm-property">line-height</span>: <span class="cm-number">20px</span>; <span class="cm-property">margin</span>: <span class="cm-number">8px</span> <span class="cm-number">8px</span> <span class="cm-number">0</span>;}
-</code></pre>
-<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">repoCards</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;m-repoCards-lg&quot;</span><span class="cm-tagcm-bracket">&gt;</span>
-    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">div</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;repoCards_tt&quot;</span><span class="cm-tagcm-bracket">&gt;</span>我的镜像<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">a</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;f-fr&quot;</span> <span class="cm-attribute">on-click</span>=<span class="cm-attribute">{showAll</span> = <span class="cm-attribute">!showAll}</span><span class="cm-tagcm-bracketcm-error">&gt;</span>{showAll ? &#39;部分显示&#39; : &#39;全部显示(9)&#39;}<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">a</span><span class="cm-tagcm-bracket">&gt;</span><span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">div</span><span class="cm-tagcm-bracket">&gt;</span>
+<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">repoCards</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;m-repoCards-complex&quot;</span><span class="cm-tagcm-bracket">&gt;</span>
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">div</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;repoCards_tt&quot;</span><span class="cm-tagcm-bracket">&gt;</span>我的镜像 <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">a</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;f-fr&quot;</span> <span class="cm-attribute">on-click</span>=<span class="cm-attribute">{showAll</span> = <span class="cm-attribute">!showAll}</span><span class="cm-tagcm-bracketcm-error">&gt;</span>{showAll ? &#39;部分显示&#39; : &#39;全部显示(&#39; + myRepos.length + &#39;)&#39;}<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">a</span><span class="cm-tagcm-bracket">&gt;</span><span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">div</span><span class="cm-tagcm-bracket">&gt;</span>
     {#list myRepos as repo}
     <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">repoCard</span> <span class="cm-attribute">value</span>=<span class="cm-attribute">{repo}</span> <span class="cm-attribute">visible</span>=<span class="cm-attribute">{repo_index</span> <span class="cm-error">&lt; 5 || showAll} /&gt;</span>
     {/list}
@@ -206,6 +241,9 @@
     }
 });
 </code></pre>
+<pre class="lang-css"><code><span class="cm-qualifier">.m-repoCards-complex</span> {<span class="cm-property">width</span>: <span class="cm-number">590px</span>; <span class="cm-property">padding</span>: <span class="cm-number">0</span> <span class="cm-number">20px</span>; <span class="cm-property">border</span>: <span class="cm-number">1px</span> <span class="cm-atom">solid</span> <span class="cm-atom">#e1e8ed</span>; <span class="cm-property">border-radius</span>: <span class="cm-number">1px</span>;}
+<span class="cm-qualifier">.m-repoCards</span> <span class="cm-qualifier">.repoCards_tt</span> {<span class="cm-property">font-size</span>: <span class="cm-number">14px</span>; <span class="cm-property">line-height</span>: <span class="cm-number">20px</span>; <span class="cm-property">margin</span>: <span class="cm-number">8px</span> <span class="cm-number">8px</span> <span class="cm-number">0</span>;}
+</code></pre>
 <h4 id="-">选择密钥</h4>
 <div class="m-example"><style>.m-sshKeys {font-size: 0;}
 .u-sshKey {
@@ -224,6 +262,45 @@
 .u-sshKey.z-sel>i {display: inline-block;}
 .u-sshKey.z-dis {cursor: not-allowed; background: #f7f8fa; color: #ccc;}</style></div>
 
+<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">sshKeys</span><span class="cm-tagcm-bracket">&gt;</span>
+    {#list sshKeys as sshKey}
+    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">sshKey</span> <span class="cm-attribute">title</span>=<span class="cm-attribute">{sshKey}</span><span class="cm-tagcm-bracketcm-error">&gt;</span>{sshKey}<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">sshKey</span><span class="cm-tagcm-bracket">&gt;</span>
+    {/list}
+<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">sshKeys</span><span class="cm-tagcm-bracket">&gt;</span>
+</code></pre>
+<pre class="lang-javascript"><code><span class="cm-variable">RGUI</span>.<span class="cm-property">SSHKeys</span> <span class="cm-operator">=</span> <span class="cm-variable">RGUI</span>.<span class="cm-property">ListView</span>.<span class="cm-property">extend</span>({
+    <span class="cm-property">name</span>: <span class="cm-string">&#39;sshKeys&#39;</span>,
+    <span class="cm-property">template</span>: <span class="cm-string">&#39;&lt;div class=&quot;m-sshKeys {class}&quot; z-dis={disabled} r-hide={!visible}&gt;{#inc this.$body}&lt;/div&gt;&#39;</span>,
+    <span class="cm-property">config</span>() {
+        <span class="cm-keyword">this</span>.<span class="cm-property">data</span> <span class="cm-operator">=</span> <span class="cm-variable">Object</span>.<span class="cm-property">assign</span>({
+            <span class="cm-property">multiple</span>: <span class="cm-atom">true</span>
+        }, <span class="cm-keyword">this</span>.<span class="cm-property">data</span>);
+        <span class="cm-keyword">this</span>.<span class="cm-property">supr</span>();
+    }
+});
+
+<span class="cm-variable">RGUI</span>.<span class="cm-property">SSHKey</span> <span class="cm-operator">=</span> <span class="cm-variable">RGUI</span>.<span class="cm-property">Item</span>.<span class="cm-property">extend</span>({
+    <span class="cm-property">name</span>: <span class="cm-string">&#39;sshKey&#39;</span>,
+    <span class="cm-property">template</span>: <span class="cm-string-2">`</span>
+        <span class="cm-string-2">&lt;div class=&quot;u-sshKey {class}&quot; z-sel={selected} z-dis={disabled} z-divider={divider} title={title} r-hide={!visible} on-click={this.select()}&gt;</span>
+            <span class="cm-string-2">&lt;span&gt;{#inc this.$body}&lt;/span&gt;</span>
+            <span class="cm-string-2">&lt;i class=&quot;u-icon u-icon-check&quot;&gt;&lt;/i&gt;</span>
+        <span class="cm-string-2">&lt;/div&gt;</span>
+    <span class="cm-string-2">`</span> 
+});
+
+<span class="cm-keyword">let</span> <span class="cm-variable">component</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">RGUI</span>.<span class="cm-property">Component</span>({
+    <span class="cm-property">template</span>: <span class="cm-variable">template</span>,
+    <span class="cm-property">data</span>: {
+        <span class="cm-property">sshKeys</span>: [
+            <span class="cm-string">&#39;9ed236f8de294811a657acc4b8e92fd7&#39;</span>,
+            <span class="cm-string">&#39;0948a43c04b045b8ad63bc323ef06cb0&#39;</span>,
+            <span class="cm-string">&#39;a5c814940c9b4d8ab661831b391f9dca&#39;</span>,
+            <span class="cm-string">&#39;e2966c5c6347489ca16a0bf5659e2dcd&#39;</span>,
+        ]
+    }
+});
+</code></pre>
 <pre class="lang-css"><code><span class="cm-qualifier">.m-sshKeys</span> {<span class="cm-property">font-size</span>: <span class="cm-number">0</span>;}
 <span class="cm-qualifier">.u-sshKey</span> {
     <span class="cm-property">display</span>: <span class="cm-atom">inline-block</span>; <span class="cm-property">position</span>: <span class="cm-atom">relative</span>; <span class="cm-property">cursor</span>: <span class="cm-atom">pointer</span>; 
@@ -241,45 +318,11 @@
 <span class="cm-qualifier">.u-sshKey</span><span class="cm-qualifier">.z-sel</span>&gt;<span class="cm-tag">i</span> {<span class="cm-property">display</span>: <span class="cm-atom">inline-block</span>;}
 <span class="cm-qualifier">.u-sshKey</span><span class="cm-qualifier">.z-dis</span> {<span class="cm-property">cursor</span>: <span class="cm-atom">not-allowed</span>; <span class="cm-property">background</span>: <span class="cm-atom">#f7f8fa</span>; <span class="cm-property">color</span>: <span class="cm-atom">#ccc</span>;}
 </code></pre>
-<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">sshKeys</span><span class="cm-tagcm-bracket">&gt;</span>
-    {#list sshKeys as sshKey}
-    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">sshKey</span> <span class="cm-attribute">title</span>=<span class="cm-attribute">{sshKey}</span><span class="cm-tagcm-bracketcm-error">&gt;</span>{sshKey}<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">sshKey</span><span class="cm-tagcm-bracket">&gt;</span>
-    {/list}
-<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">sshKeys</span><span class="cm-tagcm-bracket">&gt;</span>
-</code></pre>
-<pre class="lang-javascript"><code><span class="cm-variable">RGUI</span>.<span class="cm-property">SSHKeys</span> <span class="cm-operator">=</span> <span class="cm-variable">RGUI</span>.<span class="cm-property">ListView</span>.<span class="cm-property">extend</span>({
-    <span class="cm-property">name</span>: <span class="cm-string">&#39;sshKeys&#39;</span>,
-    <span class="cm-property">template</span>: <span class="cm-string">&#39;&lt;div class=&quot;m-sshKeys {class}&quot; z-dis={disabled} r-hide={!visible}&gt;{#inc this.$body}&lt;/div&gt;&#39;</span>,
-    <span class="cm-property">config</span>() {
-        <span class="cm-keyword">this</span>.<span class="cm-property">data</span> <span class="cm-operator">=</span> <span class="cm-variable">Object</span>.<span class="cm-property">assign</span>({
-            <span class="cm-property">multiple</span>: <span class="cm-atom">true</span>
-        }, <span class="cm-keyword">this</span>.<span class="cm-property">data</span>);
-        <span class="cm-keyword">this</span>.<span class="cm-property">supr</span>();
-    }
-});
-<span class="cm-variable">RGUI</span>.<span class="cm-property">SSHKey</span> <span class="cm-operator">=</span> <span class="cm-variable">RGUI</span>.<span class="cm-property">Item</span>.<span class="cm-property">extend</span>({
-    <span class="cm-property">name</span>: <span class="cm-string">&#39;sshKey&#39;</span>,
-    <span class="cm-property">template</span>: <span class="cm-string-2">`&lt;div class=&quot;u-sshKey {class}&quot; z-sel={selected} z-dis={disabled} title={title} r-hide={!visible} on-click={this.select()}&gt;</span>
-        <span class="cm-string-2">&lt;span&gt;{#inc this.$body}&lt;/span&gt;&lt;i class=&quot;u-icon u-icon-check&quot;&gt;&lt;/i&gt;</span>
-    <span class="cm-string-2">&lt;/div&gt;`</span>
-});
-
-<span class="cm-keyword">let</span> <span class="cm-variable">component</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">RGUI</span>.<span class="cm-property">Component</span>({
-    <span class="cm-property">template</span>: <span class="cm-variable">template</span>,
-    <span class="cm-property">data</span>: {
-        <span class="cm-property">sshKeys</span>: [
-            <span class="cm-string">&#39;9ed236f8de294811a657acc4b8e92fd7&#39;</span>,
-            <span class="cm-string">&#39;0948a43c04b045b8ad63bc323ef06cb0&#39;</span>,
-            <span class="cm-string">&#39;a5c814940c9b4d8ab661831b391f9dca&#39;</span>,
-            <span class="cm-string">&#39;e2966c5c6347489ca16a0bf5659e2dcd&#39;</span>,
-        ]
-    }
-});
-</code></pre>
 <h4 id="-">选择密钥 - 升级版</h4>
 <div class="m-example"></div>
 
-<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">sshKeys</span><span class="cm-tagcm-bracket">&gt;</span>
+<pre class="lang-xml"><code>{selectedCount}
+<span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">sshKeys</span><span class="cm-tagcm-bracket">&gt;</span>
     {#list sshKeys as sshKey}
     <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">sshKey</span> <span class="cm-attribute">title</span>=<span class="cm-attribute">{sshKey.name}</span> <span class="cm-attribute">selected</span>=<span class="cm-attribute">{sshKey.selected}</span> <span class="cm-attribute">disabled</span>=<span class="cm-attribute">{!sshKey.selected</span> <span class="cm-attribute">&amp;&amp;</span> <span class="cm-attribute">!canSelect}</span><span class="cm-tagcm-bracketcm-error">&gt;</span>{sshKey.name}<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">sshKey</span><span class="cm-tagcm-bracket">&gt;</span>
     {/list}
@@ -334,17 +377,46 @@ var $$ = function(selector){return document.querySelectorAll(selector)};
 
 var index = 0;
 (function (index) {
-    var template = '<pills>\n    <pill>1GB</pill>\n    <pill>2GB</pill>\n    <pill>4GB</pill>\n    <pill disabled>8GB</pill>\n    <pill disabled>16GB</pill>\n</pills>\n<p></p>\n<pills>\n    <pill selected>带宽</pill>\n    <pill>流量</pill>\n</pills>';
+    var template = '<pills>\n    <pill>1GB</pill>\n    <pill>2GB</pill>\n    <pill>4GB</pill>\n    <pill disabled>8GB</pill>\n    <pill disabled>16GB</pill>\n</pills>';
     RGUI.Pills = RGUI.ListView.extend({
         name: 'pills',
         template: '<ul class="m-pills {class}" z-dis={disabled} r-hide={!visible}>{#inc this.$body}</ul>'
     });
-    RGUI.Pill = RGUI.Item.extend({ name: 'pill' });
+
+    RGUI.Pill = RGUI.Item.extend({
+        name: 'pill'
+    });
 
     var component = new RGUI.Component({
         template: template
     });
-    component.$inject($$(".m-example")[index]);
+    component && component.$inject($$(".m-example")[index]);
+})(index++);
+(function (index) {
+    var template = '<pills>\n    <pill selected>带宽</pill>\n    <pill>流量</pill>\n</pills>';
+    var component = new RGUI.Component({
+        template: template
+    });
+    component && component.$inject($$(".m-example")[index]);
+})(index++);
+(function (index) {
+    var template = '<pills value={memoryPrice}>\n    {#list flavors as flavor}\n    <pill value={flavor.price} disabled={flavor.memory >= 8}>{flavor.memory}GB</pill>\n    {/list}\n</pills>';
+    var component = new RGUI.Component({
+        template: template,
+        data: {
+            flavors: []
+        },
+        init: function init() {
+            var _this = this;
+
+            setTimeout(function () {
+                _this.data.flavors = [{ memory: 1, price: 0.23 }, { memory: 2, price: 0.52 }, { memory: 4, price: 0.93 }, { memory: 8, price: 1.86 }, { memory: 16, price: 3.60 }];
+                _this.data.memoryPrice = _this.data.flavors[0].price;
+                _this.$update();
+            }, 500);
+        }
+    });
+    component && component.$inject($$(".m-example")[index]);
 })(index++);
 (function (index) {
     var template = '<repoCards>\n    {#list repos as repo}\n    <repoCard value={repo} />\n    {/list}\n</repoCards>';
@@ -352,9 +424,10 @@ var index = 0;
         name: 'repoCards',
         template: '<div class="m-repoCards {class}" z-dis={disabled} r-hide={!visible}>{#inc this.$body}</div>'
     });
+
     RGUI.RepoCard = RGUI.Item.extend({
         name: 'repoCard',
-        template: '<div class="u-repoCard {class}" z-sel={selected} z-dis={disabled} title={title} r-hide={!visible} on-click={this.select()}>\n        <div class="repoCard_info">\n            <div class="repoCard_logo"><i class="u-icon u-icon-html5"></i></div>\n            <div class="repoCard_name">{value.name}</div>\n        </div>\n        <div class="repoCard_version">{value.version}</div>\n    </div>'
+        template: '\n        <div class="u-repoCard {class}" z-sel={selected} z-dis={disabled} z-divider={divider} title={title} r-hide={!visible} on-click={this.select()}>\n            <div class="repoCard_info">\n                <div class="repoCard_logo"><i class="u-icon u-icon-html5"></i></div>\n                <div class="repoCard_name">{value.name}</div>\n            </div>\n            <div class="repoCard_version">{value.version}</div>\n        </div>\n    '
     });
 
     var component = new RGUI.Component({
@@ -363,10 +436,10 @@ var index = 0;
             repos: [{ name: 'centos', version: '6.5' }, { name: 'ubuntu', version: '14.04' }, { name: 'LAMP', version: 'latest' }, { name: 'mysql', version: '5.6' }, { name: 'redis', version: '2.8.4' }]
         }
     });
-    component.$inject($$(".m-example")[index]);
+    component && component.$inject($$(".m-example")[index]);
 })(index++);
 (function (index) {
-    var template = '<repoCards class="m-repoCards-lg">\n    <div class="repoCards_tt">我的镜像<a class="f-fr" on-click={showAll = !showAll}>{showAll ? \'部分显示\' : \'全部显示(9)\'}</a></div>\n    {#list myRepos as repo}\n    <repoCard value={repo} visible={repo_index < 5 || showAll} />\n    {/list}\n    <div class="repoCards_tt">官方镜像</div>\n    {#list repos as repo}\n    <repoCard value={repo} />\n    {/list}\n</repoCards>';
+    var template = '<repoCards class="m-repoCards-complex">\n    <div class="repoCards_tt">我的镜像 <a class="f-fr" on-click={showAll = !showAll}>{showAll ? \'部分显示\' : \'全部显示(\' + myRepos.length + \')\'}</a></div>\n    {#list myRepos as repo}\n    <repoCard value={repo} visible={repo_index < 5 || showAll} />\n    {/list}\n    <div class="repoCards_tt">官方镜像</div>\n    {#list repos as repo}\n    <repoCard value={repo} />\n    {/list}\n</repoCards>';
     var component = new RGUI.Component({
         template: template,
         data: {
@@ -375,7 +448,7 @@ var index = 0;
             repos: [{ name: 'centos', version: '6.5' }, { name: 'ubuntu', version: '14.04' }, { name: 'LAMP', version: 'latest' }, { name: 'mysql', version: '5.6' }, { name: 'redis', version: '2.8.4' }]
         }
     });
-    component.$inject($$(".m-example")[index]);
+    component && component.$inject($$(".m-example")[index]);
 })(index++);
 (function (index) {
     var template = '<sshKeys>\n    {#list sshKeys as sshKey}\n    <sshKey title={sshKey}>{sshKey}</sshKey>\n    {/list}\n</sshKeys>';
@@ -389,9 +462,10 @@ var index = 0;
             this.supr();
         }
     });
+
     RGUI.SSHKey = RGUI.Item.extend({
         name: 'sshKey',
-        template: '<div class="u-sshKey {class}" z-sel={selected} z-dis={disabled} title={title} r-hide={!visible} on-click={this.select()}>\n        <span>{#inc this.$body}</span><i class="u-icon u-icon-check"></i>\n    </div>'
+        template: '\n        <div class="u-sshKey {class}" z-sel={selected} z-dis={disabled} z-divider={divider} title={title} r-hide={!visible} on-click={this.select()}>\n            <span>{#inc this.$body}</span>\n            <i class="u-icon u-icon-check"></i>\n        </div>\n    '
     });
 
     var component = new RGUI.Component({
@@ -400,10 +474,10 @@ var index = 0;
             sshKeys: ['9ed236f8de294811a657acc4b8e92fd7', '0948a43c04b045b8ad63bc323ef06cb0', 'a5c814940c9b4d8ab661831b391f9dca', 'e2966c5c6347489ca16a0bf5659e2dcd']
         }
     });
-    component.$inject($$(".m-example")[index]);
+    component && component.$inject($$(".m-example")[index]);
 })(index++);
 (function (index) {
-    var template = '<sshKeys>\n    {#list sshKeys as sshKey}\n    <sshKey title={sshKey.name} selected={sshKey.selected} disabled={!sshKey.selected && !canSelect}>{sshKey.name}</sshKey>\n    {/list}\n</sshKeys>';
+    var template = '{selectedCount}\n<sshKeys>\n    {#list sshKeys as sshKey}\n    <sshKey title={sshKey.name} selected={sshKey.selected} disabled={!sshKey.selected && !canSelect}>{sshKey.name}</sshKey>\n    {/list}\n</sshKeys>';
     var component = new RGUI.Component({
         template: template,
         data: {
@@ -417,7 +491,7 @@ var index = 0;
             }
         }
     });
-    component.$inject($$(".m-example")[index]);
+    component && component.$inject($$(".m-example")[index]);
 })(index++);
 </script>
 </body>
