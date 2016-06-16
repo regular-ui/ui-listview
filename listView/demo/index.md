@@ -1,5 +1,5 @@
-### 示例
-#### 基本形式
+## 示例
+### 基本形式
 
 <div class="m-example"></div>
 
@@ -11,7 +11,7 @@
 </listView>
 ```
 
-#### value和selected
+### value和selected
 
 <div class="m-example"></div>
 
@@ -34,7 +34,7 @@
 </div>
 ```
 
-#### 只读，禁用，禁用某一项
+### 只读，禁用，禁用某一项
 
 <div class="m-example"></div>
 
@@ -64,7 +64,7 @@
 </div>
 ```
 
-#### 分隔线
+### 分隔线
 
 <div class="m-example"></div>
 
@@ -77,7 +77,7 @@
 </listView>
 ```
 
-#### 多选
+### 多选
 
 <div class="m-example"></div>
 
@@ -91,7 +91,7 @@
 </listView>
 ```
 
-#### 自定义
+### 自定义
 
 <div class="m-example"></div>
 
@@ -122,7 +122,7 @@ let component = new RGUI.Component({
 });
 ```
 
-#### 数据绑定
+### 数据绑定
 
 <div class="m-example"></div>
 
@@ -135,7 +135,7 @@ let component = new RGUI.Component({
 当前选择值：{value + ''}
 ```
 
-#### 事件
+### 事件
 
 请打开浏览器的控制台查看结果。
 

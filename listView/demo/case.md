@@ -1,6 +1,5 @@
-### 案例
-
-#### 内存选择
+## 案例
+### 内存选择
 
 <div class="m-example"></div>
 
@@ -43,7 +42,7 @@ let component = new RGUI.Component({
 .m-pills>li.z-dis {cursor: not-allowed; background-color: #f5f5f5; color: #ccc; border-color: #ccd5db;}
 ```
 
-#### 带宽/流量切换
+### 带宽/流量切换
 
 <div class="m-example"></div>
 
@@ -54,7 +53,7 @@ let component = new RGUI.Component({
 </pills>
 ```
 
-#### 内存选择 - 升级版
+### 内存选择 - 升级版
 
 <div class="m-example"></div>
 
@@ -88,7 +87,7 @@ let component = new RGUI.Component({
 });
 ```
 
-#### 镜像选择
+### 镜像选择
 
 <div class="m-example"></div>
 
@@ -157,7 +156,7 @@ let component = new RGUI.Component({
 .u-repoCard.z-sel .repoCard_version {color: #fff; background-color: #67aaf5;}
 ```
 
-#### 镜像选择 - 升级版
+### 镜像选择 - 升级版
 
 <div class="m-example"></div>
 
@@ -206,7 +205,7 @@ let component = new RGUI.Component({
 .m-repoCards .repoCards_tt {font-size: 14px; line-height: 20px; margin: 8px 8px 0;}
 ```
 
-#### 选择密钥
+### 选择密钥
 
 <div class="m-example"></div>
 
@@ -272,7 +271,7 @@ let component = new RGUI.Component({
 .u-sshKey.z-dis {cursor: not-allowed; background: #f7f8fa; color: #ccc;}
 ```
 
-#### 选择密钥 - 升级版
+### 选择密钥 - 升级版
 
 <div class="m-example"></div>
 
