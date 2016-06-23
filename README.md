@@ -2,15 +2,12 @@
 
 Regular UI - ListView, Item
 
-## ListView
+## ListView（列表视图）
 
-列表视图
+- 基础示例+API: https://regular-ui.github.io/ui-listview/listView/index.html
+- 进阶案例: https://regular-ui.github.io/ui-listview/listView/case.html
 
-Demo: http://regular-ui.github.io/ui-listview/listView/index.html
-
-## Item
-
-列表项
+## Item（列表项）
 
 ## Copyright and License
 
