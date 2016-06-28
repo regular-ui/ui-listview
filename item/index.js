@@ -15,9 +15,10 @@ import template from './index.rgl';
  */
  let Item = Component.extend({
     name: 'item',
-    template: template,
+    template,
     /**
      * @protected
+     * @override
      */
     config() {
         this.data = Object.assign({
@@ -37,6 +38,7 @@ import template from './index.rgl';
     },
     /**
      * @protected
+     * @override
      */
     destroy() {
         if(this.$outer.data._selected === this)

@@ -14,9 +14,10 @@ import template from './index.rgl';
  */
 let ListView = Component.extend({
     name: 'listView',
-    template: template,
+    template,
     /**
      * @protected
+     * @override
      */
     config() {
         this.data = Object.assign({
