@@ -1,4 +1,4 @@
-import {Component, util as _} from 'rgui-base';
+import { Component } from 'rgui-base';
 import template from './index.rgl';
 
 /**
@@ -12,7 +12,7 @@ import template from './index.rgl';
  * @param {boolean=true}            options.data.visible             => 是否显示
  * @param {string=''}               options.data.class               => 补充class
  */
-let ListView = Component.extend({
+const ListView = Component.extend({
     name: 'listView',
     template,
     /**
@@ -29,7 +29,7 @@ let ListView = Component.extend({
         this.supr();
 
         this.$watch('value', (newValue, oldValue) => {
-            if(!this.data._selected || this.data._selected.data.value !== newValue)
+            if (!this.data._selected || this.data._selected.data.value !== newValue)
                 this.data._selected = this.data._list.find((item) => item.data.value === newValue);
 
             /**
@@ -41,7 +41,7 @@ let ListView = Component.extend({
             this.$emit('change', {
                 sender: this,
                 selected: this.data._selected,
-                value: newValue
+                value: newValue,
             });
         });
 
@@ -60,10 +60,10 @@ let ListView = Component.extend({
      * @return {void}
      */
     select(item) {
-        if(this.data.readonly || this.data.disabled)
+        if (this.data.readonly || this.data.disabled)
             return;
 
-        if(this.data.multiple)
+        if (this.data.multiple)
             item.data.selected = !item.data.selected;
         else
             this.data._selected = item;
@@ -75,9 +75,9 @@ let ListView = Component.extend({
          */
         this.$emit('select', {
             sender: this,
-            selected: item
+            selected: item,
         });
-    }
+    },
 });
 
 export default ListView;

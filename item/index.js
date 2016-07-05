@@ -1,4 +1,4 @@
-import {Component, util as _} from 'rgui-base';
+import { Component, _ } from 'rgui-base';
 import template from './index.rgl';
 
 /**
@@ -13,7 +13,7 @@ import template from './index.rgl';
  * @param {boolean=true}            options.data.visible             => 是否显示
  * @param {string=''}               options.data.class               => 补充class
  */
- let Item = Component.extend({
+const Item = Component.extend({
     name: 'item',
     template,
     /**
@@ -26,14 +26,14 @@ import template from './index.rgl';
             selected: false,
             disabled: false,
             divider: false,
-            title: undefined
+            title: undefined,
         }, this.data);
         this.supr();
 
         // 没有$outer就直接报错
         this.$outer.data._list.push(this);
         // 初始化时选择selected为true的item
-        if(this.data.selected)
+        if (this.data.selected)
             this.$outer.data._selected = this;
     },
     /**
@@ -41,10 +41,10 @@ import template from './index.rgl';
      * @override
      */
     destroy() {
-        if(this.$outer.data._selected === this)
+        if (this.$outer.data._selected === this)
             this.$outer.data._selected = undefined;
         // 从$outer组件的列表中删除自己
-        var index = this.$outer.data._list.indexOf(this);
+        const index = this.$outer.data._list.indexOf(this);
         ~index && this.$outer.data._list.splice(index, 1);
         this.supr();
     },
@@ -54,7 +54,7 @@ import template from './index.rgl';
      * @return {void}
      */
     select() {
-        if(this.data.disabled || this.data.divider)
+        if (this.data.disabled || this.data.divider)
             return;
 
         this.$outer.select(this);
@@ -64,9 +64,11 @@ import template from './index.rgl';
          * @property {object} sender 事件发送对象
          */
         this.$emit('select', {
-            sender: this
+            sender: this,
         });
-    }
+    },
+}).directive({
+    'z-divider': _.createBoolClassDirective('z-divider'),
 });
 
 export default Item;
