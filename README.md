@@ -8,16 +8,16 @@ Regular UI - ListView, Item
 [![Dependencies][david-img]][david-url]
 [![NPM Download][download-img]][download-url]
 
-[npm-img]: http://img.shields.io/npm/v/rgui-listview.svg?style=flat-square
-[npm-url]: http://npmjs.org/package/rgui-listview
+[npm-img]: http://img.shields.io/npm/v/rgui-ui-listview.svg?style=flat-square
+[npm-url]: http://npmjs.org/package/rgui-ui-listview
 [travis-img]: https://img.shields.io/travis/regular-ui/ui-listview.svg?style=flat-square
 [travis-url]: https://travis-ci.org/regular-ui/ui-listview
 [coveralls-img]: https://img.shields.io/coveralls/regular-ui/ui-listview.svg?style=flat-square
 [coveralls-url]: https://coveralls.io/r/regular-ui/ui-listview
 [david-img]: http://img.shields.io/david/regular-ui/ui-listview.svg?style=flat-square
 [david-url]: https://david-dm.org/regular-ui/ui-listview
-[download-img]: https://img.shields.io/npm/dm/rgui-listview.svg?style=flat-square
-[download-url]: https://npmjs.org/package/rgui-listview
+[download-img]: https://img.shields.io/npm/dm/rgui-ui-listview.svg?style=flat-square
+[download-url]: https://npmjs.org/package/rgui-ui-listview
 
 ## ListView（列表视图）
 
