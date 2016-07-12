@@ -1,4 +1,4 @@
-import { Component } from 'rgui-base';
+import { Component } from 'rgui-ui-base';
 import ListView from '../';
 import Item from '../../item';
 
