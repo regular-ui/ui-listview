@@ -7,6 +7,7 @@ import template from './index.rgl';
  * @param {object}                  options.data                     =  绑定属性
  * @param {var}                     options.data.value              <=> 当前选择的值
  * @param {boolean=false}           options.data.multiple            => 是否可以多选
+ * @param {boolean=false}           options.data.cancelable          => 是否可以取消选择
  * @param {boolean=false}           options.data.readonly            => 是否只读
  * @param {boolean=false}           options.data.disabled            => 是否禁用
  * @param {boolean=true}            options.data.visible             => 是否显示
@@ -25,6 +26,7 @@ const ListView = Component.extend({
             _selected: undefined,
             value: undefined,
             multiple: false,
+            cancelable: false,
         }, this.data);
         this.supr();
 
@@ -65,6 +67,8 @@ const ListView = Component.extend({
 
         if (this.data.multiple)
             item.data.selected = !item.data.selected;
+        else if (this.data.cancelable && this.data._selected == item)
+            this.data._selected = undefined;
         else
             this.data._selected = item;
 
