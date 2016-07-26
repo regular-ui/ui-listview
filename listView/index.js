@@ -27,7 +27,9 @@ const ListView = Component.extend({
             multiple: false,
         }, this.data);
         this.supr();
-
+        this.watch();
+    },
+    watch() {
         this.$watch('value', (newValue, oldValue) => {
             if (!this.data._selected || this.data._selected.data.value !== newValue)
                 this.data._selected = this.data._list.find((item) => item.data.value === newValue);
