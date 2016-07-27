@@ -32,6 +32,9 @@ const Item = Component.extend({
 
         // 没有$outer就直接报错
         this.$outer.data._list.push(this);
+        // 与$outer的value相等时自动设为选中
+        if (this.$outer.data.value === this.data.value)
+            this.data.selected = true;
         // 初始化时选择selected为true的item
         if (this.data.selected)
             this.$outer.data._selected = this;
