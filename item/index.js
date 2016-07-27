@@ -32,6 +32,10 @@ const Item = Component.extend({
 
         // 没有$outer就直接报错
         this.$outer.data._list.push(this);
+
+        // 多选时不使用`value`和`_selected`
+        if (this.$outer.data.multiple)
+            return;
         // 与$outer的value相等时自动设为选中
         if (this.data.value !== undefined && this.$outer.data.value === this.data.value)
             this.data.selected = true;

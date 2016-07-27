@@ -29,6 +29,10 @@ const ListView = Component.extend({
         this.supr();
         this.watch();
     },
+    /**
+     * @protected
+     * @override
+     */
     watch() {
         this.$watch('value', (newValue, oldValue) => {
             if (!this.data._selected || this.data._selected.data.value !== newValue)
