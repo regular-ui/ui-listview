@@ -33,7 +33,7 @@ const Item = Component.extend({
         // 没有$outer就直接报错
         this.$outer.data._list.push(this);
         // 与$outer的value相等时自动设为选中
-        if (this.$outer.data.value === this.data.value)
+        if (this.data.value !== undefined && this.$outer.data.value === this.data.value)
             this.data.selected = true;
         // 初始化时选择selected为true的item
         if (this.data.selected)
@@ -65,9 +65,13 @@ const Item = Component.extend({
         /**
          * @event select 选择该项时触发
          * @property {object} sender 事件发送对象
+         * @property {Item} selected 当前选择项
+         * @property {var} value 当前选择值
          */
         this.$emit('select', {
             sender: this,
+            selected: this,
+            value: this.data.value,
         });
     },
 }).directive({

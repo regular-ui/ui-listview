@@ -74,10 +74,12 @@ const ListView = Component.extend({
          * @event select 选择某一项时触发
          * @property {object} sender 事件发送对象
          * @property {Item} selected 当前选择项
+         * @property {var} value 当前选择值
          */
         this.$emit('select', {
             sender: this,
             selected: item,
+            value: item.data.value,
         });
     },
 });

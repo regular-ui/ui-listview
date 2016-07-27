@@ -61,7 +61,7 @@ describe('ListView', () => {
             expect(listView.data._selected).to.be(item3);
         });
 
-        it('should change the value.', () => {
+        it('should change the `value`.', () => {
             expect(listView.data.value).to.be(item3.data.value);
         });
 
@@ -72,7 +72,7 @@ describe('ListView', () => {
                 expect(listView.data._selected).to.be(item1);
             });
 
-            it('should change the value.', () => {
+            it('should change the `value`.', () => {
                 expect(listView.data.value).to.be(item1.data.value);
             });
 
@@ -110,7 +110,7 @@ describe('ListView', () => {
         });
     });
 
-    describe('initialized with multiple property', () => {
+    describe('initialized with `multiple` property', () => {
         const component = new Component({
             template: `<listView multiple>
                 <item value=1>选项1</item>
@@ -142,38 +142,79 @@ describe('ListView', () => {
         });
     });
 
-    describe('initialized with a dynamic array', () => {
+    describe('initialized with a empty array', () => {
         const component = new Component({
             template: `<listView value={2}>
                 {#list list as item}
                     <item value={item}>选项{item}</item>
                 {/list}
             </listView>`,
-            data: { list: [1, 2, 3] },
+            data: { list: [] },
         });
         const listView = component._children[0];
-        const item1 = component._children[1];
-        const item2 = component._children[2];
-        const item3 = component._children[3];
 
-        it('should select the correct item.', () => {
-            expect(listView.data._selected).to.be(item2);
+        it('should not select a item.', () => {
+            expect(listView.data._selected).to.be(undefined);
         });
 
-        describe('when emptying the array', () => {
-            it('should remove old referenced items when list emptied.', () => {
+        describe('when push items in the array', () => {
+            it('should sync the `_list`.', () => {
+                component.data.list = [1, 2, 3];
+                component.$update();
+                expect(listView.data._list.length).to.be(3);
+            });
+
+            it('should not change the value.', () => {
+                expect(listView.data.value).to.be(2);
+            });
+
+            it('should select item by value.', () => {
+                expect(listView.data._selected).to.be(component._children[2]);
+            });
+        });
+
+        describe('when change the array without a same-value item', () => {
+            it('should sync the `_list`.', () => {
+                component.data.list = [1, 8, 6, 0];
+                component.$update();
+                expect(listView.data._list.length).to.be(4);
+            });
+
+            it('should not have any value.', () => {
+                expect(listView.data.value).to.be(undefined);
+            });
+
+            it('should not select any item.', () => {
+                expect(listView.data._selected).to.be(undefined);
+            });
+        });
+
+        describe('when change the array with a same-value item', () => {
+            it('should sync the `_list`.', () => {
+                listView.data.value = 2;
+                component.data.list = [4, 5, 2, 7, 11];
+                component.$update();
+                expect(listView.data._list.length).to.be(5);
+            });
+
+            it('should select item by value.', () => {
+                expect(listView.data._selected.data.value).to.be(2);
+            });
+        });
+
+        describe('when empty the array', () => {
+            it('should sync the `_list`.', () => {
                 component.data.list = [];
                 component.$update();
-                // not understand
                 expect(listView.data._list.length).to.be(0);
             });
 
-            it('should not select a item', () => {
-                expect(listView.data._selected).to.be(undefined);
+            it('should not have any value', () => {
+                expect(listView.data.value).to.be(undefined);
             });
 
-            it('should not have a value', () => {
-                expect(listView.data.value).to.be(undefined);
+            it('should not select any item.', () => {
+                expect(listView.data._selected).to.be(undefined);
             });
         });
     });
