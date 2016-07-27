@@ -67,7 +67,7 @@ const ListView = Component.extend({
 
         if (this.data.multiple)
             item.data.selected = !item.data.selected;
-        else if (this.data.cancelable && this.data._selected == item)
+        else if (this.data.cancelable && this.data._selected === item)
             this.data._selected = undefined;
         else
             this.data._selected = item;
