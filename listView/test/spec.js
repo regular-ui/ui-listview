@@ -199,10 +199,13 @@ describe('ListView', () => {
         });
 
         describe('ListView#select(item) && Item#select()', () => {
-            it('should change state of selected item.', () => {
+            it('should toggle state of selected item.', () => {
                 item2.select();
                 listView.$update();
                 expect(item2.data.selected).to.be(false);
+                item2.select();
+                listView.$update();
+                expect(item2.data.selected).to.be(true);
             });
 
             it('should not change the `_selected`.', () => {
@@ -239,6 +242,36 @@ describe('ListView', () => {
                 component.$update();
                 expect(listView.data._list[0].data.selected).to.be(true);
                 expect(listView.data._list[2].data.selected).to.be(true);
+            });
+        });
+    });
+
+    describe('initialized with `cancelable` property', () => {
+        const component = new Component({
+            template: `<listView cancelable>
+                <item value=1>选项1</item>
+                <item value=2>选项2</item>
+                <item value=3 selected>选项3</item>
+            </listView>`,
+        });
+        const listView = component._children[0];
+        const item1 = component._children[1];
+        const item2 = component._children[2];
+        const item3 = component._children[3];
+
+        describe('ListView#select(item) && Item#select()', () => {
+            it('should cancel the selected item.', () => {
+                item3.select();
+                listView.$update();
+                expect(listView.data._selected).to.be(undefined);
+            });
+
+            it('should change item state.', () => {
+                expect(item2.data.selected).to.be(false);
+            });
+
+            it('should change the `value`.', () => {
+                expect(listView.data.value).to.be(undefined);
             });
         });
     });

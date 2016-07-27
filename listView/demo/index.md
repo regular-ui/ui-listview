@@ -91,6 +91,18 @@
 </listView>
 ```
 
+### 可取消
+
+<div class="m-example"></div>
+
+```xml
+<listView cancelable>
+    <item>选项1</item>
+    <item>选项2</item>
+    <item selected>选项3</item>
+</listView>
+```
+
 ### 自定义
 
 <div class="m-example"></div>
