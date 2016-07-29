@@ -3,6 +3,7 @@
   "description": "Regular UI - ListView, Item",
   "version": "0.2.0-alpha",
   "author": "Rainfore <rainforest92@126.com>",
+  "contributors": ["shhider <shhider@163.com>"],
   "main": "./index.js",
   "repository": "regular-ui/ui-listview",
   "homepage": "http://regular-ui.github.io",
