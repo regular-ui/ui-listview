@@ -272,9 +272,9 @@
     <span class="cm-property">name</span>: <span class="cm-string">&#39;sshKeys&#39;</span>,
     <span class="cm-property">template</span>: <span class="cm-string">&#39;&lt;div class=&quot;m-sshKeys {class}&quot; z-dis={disabled} r-hide={!visible}&gt;{#inc this.$body}&lt;/div&gt;&#39;</span>,
     <span class="cm-property">config</span>() {
-        <span class="cm-keyword">this</span>.<span class="cm-property">data</span> <span class="cm-operator">=</span> <span class="cm-variable">Object</span>.<span class="cm-property">assign</span>({
+        <span class="cm-keyword">this</span>.<span class="cm-property">defaults</span>({
             <span class="cm-property">multiple</span>: <span class="cm-atom">true</span>
-        }, <span class="cm-keyword">this</span>.<span class="cm-property">data</span>);
+        });
         <span class="cm-keyword">this</span>.<span class="cm-property">supr</span>();
     }
 });
@@ -456,9 +456,9 @@ var index = 0;
         name: 'sshKeys',
         template: '<div class="m-sshKeys {class}" z-dis={disabled} r-hide={!visible}>{#inc this.$body}</div>',
         config: function config() {
-            this.data = Object.assign({
+            this.defaults({
                 multiple: true
-            }, this.data);
+            });
             this.supr();
         }
     });
