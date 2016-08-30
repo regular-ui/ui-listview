@@ -21,13 +21,13 @@ const ListView = Component.extend({
      * @override
      */
     config() {
-        this.data = Object.assign({
+        this.defaults({
             _list: [],
             _selected: undefined,
             value: undefined,
             multiple: false,
             cancelable: false,
-        }, this.data);
+        });
         this.supr();
         this.watch();
     },

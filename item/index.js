@@ -21,13 +21,13 @@ const Item = Component.extend({
      * @override
      */
     config() {
-        this.data = Object.assign({
+        this.defaults({
             value: undefined,
             selected: false,
             disabled: false,
             divider: false,
             title: undefined,
-        }, this.data);
+        });
         this.supr();
 
         // 没有$outer就直接报错

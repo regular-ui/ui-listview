@@ -1,7 +1,7 @@
 {
   "name": "rgui-ui-listview",
   "description": "Regular UI - ListView, Item",
-  "version": "0.2.0-alpha",
+  "version": "0.2.0-alpha.1",
   "author": "Rainfore <rainforest92@126.com>",
   "contributors": ["shhider <shhider@163.com>"],
   "main": "./index.js",
@@ -12,7 +12,7 @@
   "keywords": ["regular", "ui", "rgui", "listview", "item"],
   "tags": ["regular", "ui", "rgui", "listview", "item"],
   "dependencies": {
-    "rgui-ui-base": "^0.2.0-alpha.4"
+    "rgui-ui-base": "^0.2.0-alpha.5"
   },
   "peerDependencies": {
     "regularjs": "^0.4.3"

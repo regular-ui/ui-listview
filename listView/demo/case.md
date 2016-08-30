@@ -222,9 +222,9 @@ RGUI.SSHKeys = RGUI.ListView.extend({
     name: 'sshKeys',
     template: '<div class="m-sshKeys {class}" z-dis={disabled} r-hide={!visible}>{#inc this.$body}</div>',
     config() {
-        this.data = Object.assign({
+        this.defaults({
             multiple: true
-        }, this.data);
+        });
         this.supr();
     }
 });
