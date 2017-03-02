@@ -10,7 +10,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 <link rel="icon" href="https://regular-ui.github.io/v0.2/img/favicon.ico" type="image/x-icon">
 <link rel="shortcut icon" href="https://regular-ui.github.io/v0.2/img/favicon.ico" type="image/x-icon">
-<link rel="stylesheet" href="https://regular-ui.github.io/v0.2/css/doc.default.min.css">
+<link rel="stylesheet" href="https://regular-ui.github.io/v0.2/css/docs.default.min.css">
 <link rel="stylesheet" href="../css/index.css">
 <!--[if lt IE9]>
 <script>
@@ -393,7 +393,7 @@ var index = 0;
     component && component.$inject($$(".m-example")[index]);
 })(index++);
 (function (index) {
-    var template = '<pills>\n    <pill selected>带宽</pill>\n    <pill>流量</pill>\n</pills>';
+    var template = '<pills>\n    <pill selected>\u5E26\u5BBD</pill>\n    <pill>\u6D41\u91CF</pill>\n</pills>';
     var component = new RGUI.Component({
         template: template
     });
@@ -439,7 +439,7 @@ var index = 0;
     component && component.$inject($$(".m-example")[index]);
 })(index++);
 (function (index) {
-    var template = '<repoCards class="m-repoCards-complex">\n    <div class="repoCards_tt">我的镜像 <a class="f-fr" on-click={showAll = !showAll}>{showAll ? \'部分显示\' : \'全部显示(\' + myRepos.length + \')\'}</a></div>\n    {#list myRepos as repo}\n    <repoCard value={repo} visible={repo_index < 5 || showAll} />\n    {/list}\n    <div class="repoCards_tt">官方镜像</div>\n    {#list repos as repo}\n    <repoCard value={repo} />\n    {/list}\n</repoCards>';
+    var template = '<repoCards class="m-repoCards-complex">\n    <div class="repoCards_tt">\u6211\u7684\u955C\u50CF <a class="f-fr" on-click={showAll = !showAll}>{showAll ? \'\u90E8\u5206\u663E\u793A\' : \'\u5168\u90E8\u663E\u793A(\' + myRepos.length + \')\'}</a></div>\n    {#list myRepos as repo}\n    <repoCard value={repo} visible={repo_index < 5 || showAll} />\n    {/list}\n    <div class="repoCards_tt">\u5B98\u65B9\u955C\u50CF</div>\n    {#list repos as repo}\n    <repoCard value={repo} />\n    {/list}\n</repoCards>';
     var component = new RGUI.Component({
         template: template,
         data: {
