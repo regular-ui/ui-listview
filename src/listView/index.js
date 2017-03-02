@@ -3,8 +3,8 @@ import template from './index.rgl';
 
 /**
  * @class ListView
- * @extend Component
- * @param {object}                  options.data                     =  绑定属性
+ * @extends Component
+ * @param {Object}                  options.data                     =  绑定属性
  * @param {var}                     options.data.value              <=> 当前选择的值
  * @param {boolean=false}           options.data.multiple            => 是否可以多选
  * @param {boolean=false}           options.data.cancelable          => 是否可以取消选择
@@ -36,9 +36,9 @@ const ListView = Component.extend({
      * @override
      */
     watch() {
-        this.$watch('value', (newValue, oldValue) => {
-            if (!this.data._selected || this.data._selected.data.value !== newValue)
-                this.data._selected = this.data._list.find((item) => item.data.value === newValue);
+        this.$watch('value', (value) => {
+            if (!this.data._selected || this.data._selected.data.value !== value)
+                this.data._selected = this.data._list.find((item) => item.data.value === value);
 
             /**
              * @event change 选择值改变时触发
@@ -49,16 +49,16 @@ const ListView = Component.extend({
             this.$emit('change', {
                 sender: this,
                 selected: this.data._selected,
-                value: newValue,
+                value,
             });
         });
 
-        this.$watch('_selected', (newValue, oldValue) => {
+        this.$watch('_selected', (_selected, _oldSelected) => {
             // 改变item的选择状态
-            oldValue && (oldValue.data.selected = false);
-            newValue && (newValue.data.selected = true);
+            _oldSelected && (_oldSelected.data.selected = false);
+            _selected && (_selected.data.selected = true);
             // 设置value
-            this.data.value = newValue ? newValue.data.value : newValue;
+            this.data.value = _selected ? _selected.data.value : _selected;
         });
     },
     /**

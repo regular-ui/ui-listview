@@ -3,8 +3,8 @@ import template from './index.rgl';
 
 /**
  * @class Item
- * @extend Component
- * @param {object}                  options.data                     =  绑定属性
+ * @extends Component
+ * @param {Object}                  options.data                     =  绑定属性
  * @param {var}                     options.data.value              <=> 该项的值
  * @param {boolean=false}           options.data.selected           <=> 该项是否被选中
  * @param {boolean=false}           options.data.divider             => 设置该项为分隔线

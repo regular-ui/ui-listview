@@ -12,7 +12,7 @@
   "keywords": ["regular", "ui", "rgui", "listview", "item"],
   "tags": ["regular", "ui", "rgui", "listview", "item"],
   "dependencies": {
-    "rgui-ui-base": "^0.2.0-alpha.5"
+    "rgui-ui-base": "^0.2.0"
   },
   "peerDependencies": {
     "regularjs": "^0.4.3"
