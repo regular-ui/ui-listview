@@ -1,16 +1,32 @@
 {
   "name": "rgui-ui-listview",
   "description": "Regular UI - ListView, Item",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "author": "Rainfore <rainforest92@126.com>",
-  "contributors": ["shhider <shhider@163.com>"],
+  "contributors": [
+    "shhider <shhider@163.com>"
+  ],
   "main": "./index.js",
   "repository": "regular-ui/ui-listview",
   "homepage": "http://regular-ui.github.io",
-  "bugs": {"url": "http://github.com/regular-ui/ui-listview/issues"},
+  "bugs": {
+    "url": "http://github.com/regular-ui/ui-listview/issues"
+  },
   "license": "MIT",
-  "keywords": ["regular", "ui", "rgui", "listview", "item"],
-  "tags": ["regular", "ui", "rgui", "listview", "item"],
+  "keywords": [
+    "regular",
+    "ui",
+    "rgui",
+    "listview",
+    "item"
+  ],
+  "tags": [
+    "regular",
+    "ui",
+    "rgui",
+    "listview",
+    "item"
+  ],
   "dependencies": {
     "rgui-ui-base": "^0.2.0"
   },
