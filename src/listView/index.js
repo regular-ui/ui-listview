@@ -55,7 +55,9 @@ const ListView = Component.extend({
 
         this.$watch('_selected', (_selected, _oldSelected) => {
             // 改变item的选择状态
-            _oldSelected && (_oldSelected.data.selected = false);
+            this.data._list.forEach((item) => {
+                item.data.selected = false;
+            });
             _selected && (_selected.data.selected = true);
             // 设置value
             this.data.value = _selected ? _selected.data.value : _selected;
