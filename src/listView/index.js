@@ -60,7 +60,13 @@ const ListView = Component.extend({
             });
             _selected && (_selected.data.selected = true);
             // 设置value
-            this.data.value = _selected ? _selected.data.value : _selected;
+            if (this.data.preventValue) {
+                if (_selected) {
+                    this.data.value = _selected.data.value;
+                }
+            } else {
+                this.data.value = _selected ? _selected.data.value : _selected;
+            }
         });
     },
     /**
